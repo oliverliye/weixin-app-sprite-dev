@@ -1,4 +1,5 @@
 S = require 'string'
+path = require 'path'
 beautify = require('js-beautify').js_beautify
 wxdbrn = require 'wxdatabindrn'
 
@@ -33,8 +34,15 @@ module.exports =
             export default #{Config.varPrefix}reactClass
         """
 
-    createRoute: (code)->
+    createRoute: (routes)->
+        imports = []
+        for name, content of routes
+            imports.push """import #{name} from "./#{content.path}";"""
+
+        code = JSON.stringify routes
         beautify """
+            #{imports.join ''}
+
             export default #{code}
         """
 

@@ -7,6 +7,9 @@ import  {
 
 import view from './component/View'
 import text from './component/Text'
+import button from './component/Button'
+import pageview from './component/PageView'
+import weui from './component/Weui'
 
 rnweui =
 
@@ -44,8 +47,11 @@ rnweui =
             callback()
 
     component: {
+        weui,
+        pageview,
         view,
-        text
+        text,
+        button
     }
 
 

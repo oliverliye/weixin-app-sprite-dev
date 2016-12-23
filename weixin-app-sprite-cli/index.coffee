@@ -8,7 +8,7 @@ outWxml = require './lib/wxml'
 Wxss = require './lib/Wxss'
 Template = require './lib/template'
 
-appPath = "c:/dev/weixinapp/wxas/test/testApp/"
+appPath = "c:/dev/weixinapp/weixin-app-sprite-dev/test/testApp/"
 
 
 appJs = fs.readFileSync appPath + Config.root
@@ -34,6 +34,9 @@ defaultWindowConfig =
 defaultWindowConfig = _.extend defaultWindowConfig, appConfig.window
 
 # 处理page
+
+pageList = []
+
 for page in pages
     pagePath = path.dirname page
     pageName = path.basename page
@@ -46,14 +49,15 @@ for page in pages
 
     fs.writeFileSync "#{appPath + pagePath}/RN_#{pageName}.js", Template.createPage pageCode, pageName
 
-
     if fs.existsSync pageFilePath + '.json'
         pageConfig = fs.readFileSync pageFilePath + '.json'
-        routes[page] = _.extend defaultWindowConfig, JSON.parse pageConfig.toString()
+        routes[pageName] = _.extend defaultWindowConfig, JSON.parse pageConfig.toString()
     else
-        routes[page] = defaultWindowConfig
+        routes[pageName] = defaultWindowConfig
 
-fs.writeFileSync "#{appPath}/RN_routes.js", Template.createRoute JSON.stringify(routes)
+    routes[pageName].path = page
+
+fs.writeFileSync "#{appPath}/RN_routes.js", Template.createRoute routes
 
 
 # if fs.existsSync pageFilePath + '.json'
