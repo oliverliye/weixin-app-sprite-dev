@@ -1,0 +1,6 @@
+<template name="t1">
+<text>t1t1t1t1t</text>
+</template>
+<template name="t2">
+<text>t22222222</text>
+</template>

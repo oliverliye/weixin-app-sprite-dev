@@ -1,0 +1,14 @@
+<template name="ccccc">
+  <view class="userinfo"> dbbbrwerwe </view>
+</template>
+
+
+<template name="odd">
+  <template name="ddddd">
+  	<view class="userinfo"> ddddddddddddddddd </view>
+  </template>
+  <view class="userinfo"> oddoddoddoddodd </view>
+</template>
+
+
+<template is="odd"/>

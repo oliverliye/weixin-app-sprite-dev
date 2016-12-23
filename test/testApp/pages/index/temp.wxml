@@ -1,0 +1,36 @@
+<template name="ccccc">
+  <view class="userinfo"> dbbbrwerwe </view>
+</template>
+
+
+<template name="odd">
+  <template is="ccccc"/>
+</template>
+
+<import src="import.wxml"/>
+<template is="t1"/>
+<view>
+<template is="t1"/>
+<import src="../templates/import.wxml"/>
+</view>
+
+
+<template name="t2">
+  <view class="userinfo"> dbbbrwerwe </view>
+</template>
+<import src="import.wxml"/>
+
+<view>
+	<template is="t1" data="{{dda}}"/>
+	<import src="../templates/import.wxml"/>
+	<template is="t1" data="{{dda}}"/>
+	<view wx:for="{{[1,2]}}"/>
+		<text>{{item}}</text>
+		<text>{{item}}</text>
+	</view>
+</view>
+
+
+
+
+

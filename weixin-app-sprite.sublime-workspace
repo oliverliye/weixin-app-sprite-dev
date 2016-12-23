@@ -1,0 +1,601 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"margin",
+				"marginTop"
+			],
+			[
+				"on",
+				"onActionSelected"
+			],
+			[
+				"p",
+				"props	React: @props."
+			],
+			[
+				"_",
+				"_Modal"
+			],
+			[
+				"marg",
+				"marginTop"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"c",
+				"constructor"
+			],
+			[
+				"tr",
+				"transition"
+			],
+			[
+				"class",
+				"class_id"
+			],
+			[
+				"cov",
+				"cover_image"
+			],
+			[
+				"end",
+				"endif"
+			],
+			[
+				"img",
+				"img_file"
+			],
+			[
+				"cl",
+				"class_images"
+			],
+			[
+				"for",
+				"for	for …"
+			],
+			[
+				"post",
+				"post_data"
+			],
+			[
+				"mem",
+				"member_user_id"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"pro",
+				"product_id"
+			],
+			[
+				"product",
+				"product_id"
+			],
+			[
+				"e",
+				"elseif	elseif …"
+			],
+			[
+				"array_p",
+				"array_push"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.coffee",
+			"settings":
+			{
+				"buffer_size": 886,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/dev/weuidemo/src/component/ScrollView.coffee",
+			"settings":
+			{
+				"buffer_size": 2298,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/oliver/Desktop/新建文本文档.txt",
+			"settings":
+			{
+				"buffer_size": 122,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"selected_items":
+		[
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/oliver/Desktop/360手机助手导出的联系人.csv",
+		"/C/Users/oliver/Desktop/HandPrints.jpg",
+		"/C/dev/wddan/app/src/component/ToolBar.coffee",
+		"/C/dev/wddan/app/src/page/ProductView.coffee",
+		"/C/dev/wddan/app/android/app/build.gradle",
+		"/C/dev/rnweui/package.json",
+		"/C/dev/wddan/app/src/page/Message.coffee",
+		"/C/dev/wddan/app/src/page/Product.coffee",
+		"/C/dev/wddan/app/src/page/Setting.coffee",
+		"/C/dev/wddan/app/src/page/User.coffee",
+		"/C/dev/wddan/app/src/page/UserView.coffee",
+		"/C/dev/wddan/app/index.android.coffee",
+		"/C/dev/wddan/app/index.android.js",
+		"/C/dev/wddan/app/src/route.coffee",
+		"/C/dev/wddan/app/src/component/Modal.coffee",
+		"/C/dev/wddan/app/src/common/config.coffee",
+		"/C/dev/wddan/app/src/component/TextInput.coffee",
+		"/C/dev/wddan/app/node_modules/react-native/Libraries/EventEmitter/NativeEventEmitter.js",
+		"/C/dev/wddan/app/src/main.android.coffee",
+		"/C/dev/wddan/app/src/component/PageViewAndroid.coffee",
+		"/C/dev/wddan/app/src/component/PageViewAndroid.js",
+		"/C/dev/wddan/app/src/common/EventEmitter.js",
+		"/C/dev/wddan/app/src/common/System.coffee",
+		"/C/dev/wddan/app/android/build.gradle",
+		"/C/dev/wddan/wddan.sublime-workspace",
+		"/C/dev/wddan/app/package.json",
+		"/C/Users/oliver/Desktop/新建文本文档.txt",
+		"/C/dev/wddan/app/android/settings.gradle",
+		"/C/dev/wddan/app/android/gradle.properties",
+		"/C/dev/wddan/app/index.ios.coffee",
+		"/C/dev/wddan/app/src/main.ios.coffee",
+		"/C/dev/wddan/app/src/common/http.coffee",
+		"/C/Users/oliver/Desktop/新建文本文档 (2).txt",
+		"/C/dev/coffeescript/src/command.coffee",
+		"/C/tmp/e.js",
+		"/C/dev/coffeescript/bin/coffee",
+		"/C/dev/wddan/app/src/index.ios.coffee",
+		"/C/tmp/e.coffee",
+		"/C/dev/coffeescript/lib/coffee-script/command.js",
+		"/C/tmp/a.coffee",
+		"/C/tmp/a.js",
+		"/C/tmp/a.pl",
+		"/C/dev/coffeescript/src/lexer.coffee",
+		"/C/dev/coffeescript/examples/code.coffee",
+		"/C/dev/coffeescript/test/arrays.coffee",
+		"/C/dev/coffeescript/src/index.coffee",
+		"/C/dev/coffeescript/src/grammar.coffee",
+		"/C/dev/wddan/app/page/ProductDetail.coffee",
+		"/C/dev/wddan/app/page/ProductView.coffee",
+		"/C/dev/wddan/app/main.android.coffee",
+		"/C/dev/wddan/app/page/ProductView.js",
+		"/C/dev/wddan/app/page/ProductDetail.js",
+		"/C/dev/wddan/app/common/config.coffee",
+		"/C/dev/wddan/app/node_modules/react-native-tab-navigator/Badge.js",
+		"/C/dev/wddan/app/node_modules/react-native-tab-navigator/TabNavigatorItem.js",
+		"/C/dev/wddan/app/node_modules/react-native-tab-navigator/TabBar.js",
+		"/C/dev/wddan/app/node_modules/react-native-tab-navigator/Layout.js",
+		"/C/dev/wddan/app/node_modules/react-native-tab-navigator/Tab.js",
+		"/C/dev/wddan/app/node_modules/react-native-tab-navigator/StaticContainer.js",
+		"/C/dev/wddan/app/common/http.coffee",
+		"/C/dev/wddan/app/common/http.js",
+		"/C/dev/wddan/app/component/TabBarAndroid.coffee",
+		"/C/Users/oliver/Desktop/httpd.conf",
+		"/C/dev/wddan/app/src/page/ProductDetail.coffee",
+		"/C/dev/wddan/app/route.coffee",
+		"/C/tmp/b.js",
+		"/C/dev/exam/exam1/node_modules/uniqid/examples/webpack/app.js",
+		"/C/dev/orderapp2/application/models/Product_model.php",
+		"/C/dev/orderapp2/public/src/mobile/page/product-view.coffee",
+		"/C/dev/vue-router.git/src/index.js",
+		"/C/dev/vue-router.git/src/transition.js",
+		"/C/dev/vue-router.git/src/route.js",
+		"/C/dev/orderapp2/public/src/mobile/main.coffee",
+		"/C/dev/vux/src/components/scroller/index.vue",
+		"/C/dev/orderapp2/public/src/mobile/page/member-view.coffee",
+		"/C/dev/orderapp2/public/src/mobile/page/product-details.coffee",
+		"/C/dev/cordova/hello/platforms/android/gradle/wrapper/gradle-wrapper.properties",
+		"/C/dev/cordova/hello/platforms/android/settings.gradle",
+		"/C/dev/cordova/hello/platforms/android/project.properties",
+		"/C/dev/cordova/hello/platforms/android/build.gradle",
+		"/C/dev/cordova/hello/platforms/android/src/io/cordova/hellocordova/MainActivity.java",
+		"/C/dev/cordova/hello/platforms/android/AndroidManifest.xml",
+		"/C/dev/cordova/hello/www/index.html",
+		"/C/dev/cordova/hello/platforms/android/build/intermediates/assets/armv7/debug/www/index.html",
+		"/C/dev/reactn/AwesomeProject/index.android.js",
+		"/C/dev/reactn/AwesomeProject/index.ios.js",
+		"/C/dev/exam/exam1/config/dev.env.js",
+		"/C/dev/exam/exam1/config/index.js",
+		"/C/dev/orderapp2/public/src/mobile/page/member-details.coffee",
+		"/C/dev/orderapp2/public/src/mobile/page/member-order-details.coffee",
+		"/C/Users/oliver/Desktop/OrangeCircles.jpg",
+		"/C/dev/orderapp2/application/models/User_model.php",
+		"/C/dev/orderapp2/application/views/mobile/main.php",
+		"/C/dev/orderapp2/application/controllers/MProduct.php",
+		"/C/dev/vux/dist/components/scroller/index.js",
+		"/C/dev/vux/src/demos/Scroller.vue",
+		"/C/dev/vue-router.git/src/util.js",
+		"/C/dev/vux/src/App.vue",
+		"/C/dev/vux/src/main.js",
+		"/C/dev/orderapp2/public/css/oh-vux.css",
+		"/C/dev/vux/src/index.html",
+		"/C/dev/vux/src/Home.vue",
+		"/C/dev/vue-router.git/src/history/html5.js",
+		"/C/dev/vue-router.git/src/directives/view.js",
+		"/C/dev/vux/src/demos/Demo.vue",
+		"/C/Users/oliver/Desktop/新建文本文档 (3).txt",
+		"/C/dev/orderapp2/public/src/mobile/component/member-search.coffee",
+		"/C/dev/orderapp2/application/models/Order_model.php",
+		"/C/dev/orderapp2/application/controllers/MUser.php",
+		"/C/dev/orderapp2/public/src/mobile/page/member-order-history.coffee",
+		"/C/dev/orderapp2/public/src/mobile/router.coffee",
+		"/C/dev/orderapp2/public/src/mobile/page/message-view.coffee",
+		"/C/dev/vux/src/libs/trim.js",
+		"/C/dev/orderapp2/public/src/mobile/component/scroll-panl.coffee",
+		"/C/dev/vux/src/demos/Scroller-full.vue",
+		"/C/dev/orderapp2/public/src/mobile/page/product-add.coffee",
+		"/C/dev/orderapp2/public/src/mobile/component/product-search.coffee",
+		"/C/dev/orderapp2/public/src/desktop/page/member-view.coffee",
+		"/C/dev/orderapp2/public/src/desktop/page/product-view.coffee",
+		"/C/dev/orderapp2/public/css/oh.css",
+		"/C/dev/orderapp2/application/views/desktop/main.php",
+		"/C/dev/orderapp2/public/oh.coffee",
+		"/C/dev/orderapp2/public/src/desktop/main.coffee",
+		"/C/dev/orderapp2/public/src/desktop/page/product-details.coffee",
+		"/C/dev/orderapp2/public/src/desktop/page/product-add.coffee",
+		"/C/dev/orderapp2/public/src/desktop/page/member-order-details.coffee",
+		"/C/dev/orderapp2/public/src/desktop/page/member-details.coffee",
+		"/C/dev/orderapp2/public/src/desktop/router.coffee"
+	],
+	"find":
+	{
+		"height": 43.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"C:\\dev\\wddan",
+			"C:\\dev\\orderapp2",
+			"C:\\dev\\orderapp",
+			"<open folders>,*.php",
+			"<open folders>",
+			"C:\\Users\\oliver\\Downloads\\crosswalk-webview-16.45.421.19-arm64\\crosswalk-webview-16.45.421.19-arm64",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"console",
+			"}>\n",
+			"RCTDeviceEventEmitter",
+			"onAlwaysSelected",
+			"\n",
+			"modalStyle",
+			"buildToolsVersion",
+			"/*",
+			"XScroll",
+			"direction",
+			"_appConstructor",
+			"_match",
+			"history",
+			"HTML5History",
+			"get_member_user_list",
+			"get_member_list",
+			"define",
+			"get_product_user_list",
+			",\n",
+			"ohhttp",
+			"search",
+			"searcj",
+			" <script src=\"https://cdn.jsdelivr.net/vue.validator/2.1.5/vue-validator.min.js\"></script>",
+			"history",
+			"autoFixed",
+			"classList",
+			"setFocus",
+			"isFixed",
+			"OH_OSS_ACCESSKEYID",
+			"button",
+			"getJsSign",
+			"signature",
+			"checkAuth",
+			"jsapi_ticket",
+			"signature ",
+			"insert",
+			"weui_cells_access",
+			"model",
+			"uid",
+			"120",
+			"image-view",
+			"mountNonInputable",
+			"uploadFile",
+			"_checkImagesInContainer",
+			"createObjectURL",
+			"dataURLtoBlob",
+			"onPaste",
+			"min-width: 465px !important;",
+			"createUploader",
+			"col-xs-1",
+			"col-xs-3",
+			"extension_dir",
+			"date.timezone",
+			"extension_dir",
+			"extendsion_dir",
+			"color",
+			"class_view",
+			"class_block",
+			"main-swiper",
+			"\">\n",
+			"imguploader",
+			"亲们",
+			"restore_dialog",
+			"oh_images_upload_path",
+			"header_mobile",
+			"			\n",
+			"\">",
+			"dialog'",
+			"JSON.stringify",
+			"ctrl+alt+a",
+			";\n",
+			"	\n",
+			"		",
+			"get_custom_product",
+			"/index.php/",
+			"		\n",
+			"get_selected_custom",
+			"get_order_custom",
+			"					\n",
+			">\n",
+			"<div class=\"panel panel-default\">\n	<div class=\"panel-heading\">产品列表</div>\n	<div class=\"panel-body\">\n		<table class=\"table table-hover\">\n	      <thead>\n	        <tr>\n	          <th>#</th>\n	          <th></th>\n	          <th>名称</th>\n	          <th>价格</th>\n	          <th>操作</th>\n	        </tr>\n	      </thead>\n	      <tbody>\n	      	<?php if (isset($product_list)): ?>\n		      	<?php foreach ($product_list as $product): ?>\n		        <tr>\n		          <th scope=\"row\"><?=$product['id']?></th>\n		          <td></td>\n		          <td><?=$product['name']?></td>\n		          <td><?=$product['price']?></td>\n		          <td>\n		          	<a class=\"btn btn-primary btn-xs\" href=\"/index.php/product/edit\">编辑</a>\n		          	<a class=\"btn btn-primary btn-xs\" href=\"/index.php/product/delete\">删除</a>\n		          </td>\n		        </tr>\n		        <?php endforeach; ?>\n	        <?php endif; ?>\n	      </tbody>\n	    </table>\n				\n	</div>\n</div>\n</div>",
+			"']);\n",
+			"	  <div class=\"form-group\">\n	    <div class=\"col-sm-offset-2 col-sm-10\">\n	     \n	    </div>\n	  </div>",
+			"');\n",
+			"message",
+			"messge",
+			"()\n",
+			"_android_htmlui",
+			"			\n",
+			"color_picker_gradient_margin",
+			"SelectPopupDialog",
+			"select_dialog_singlechoice",
+			"lan"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"col-xs-2",
+			"col-xs-1",
+			"class-view",
+			"class-block",
+			"main_uploader",
+			"好友",
+			"/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.coffee",
+					"settings":
+					{
+						"buffer_size": 886,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								69,
+								69
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/dev/weuidemo/src/component/ScrollView.coffee",
+					"settings":
+					{
+						"buffer_size": 2298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/oliver/Desktop/新建文本文档.txt",
+					"settings":
+					{
+						"buffer_size": 122,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/Users/oliver/Documents/orderapp2.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 300.0,
+	"status_bar_visible": true
+}
