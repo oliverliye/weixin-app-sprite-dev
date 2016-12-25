@@ -3,12 +3,15 @@ import  {
     Navigator
 }  from 'react-native'
 import RNWeui from 'rnweui'
+import wxas from 'weixin-app-sprite'
 
 View = null
 
 create = (appPath)->
 
 	return View if View
+
+	routes = require "./#{appPath}/RN_routes"
 
 
 	View = React.createClass
@@ -17,6 +20,8 @@ create = (appPath)->
 
 	    componentDidMount: ()-> 
 
+	    	wxas.Route.init @refs.navigator, routes
+	    	
 	        RNWeui.BackAndroid ()=>
 	            return false if @state._isRoot
 	            @refs.navigator.pop()

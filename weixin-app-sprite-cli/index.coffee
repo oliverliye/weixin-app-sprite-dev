@@ -24,6 +24,7 @@ pages = appConfig.pages
 
 routes = {}
 
+# page 默认配置
 defaultWindowConfig = 
     navigationBarBackgroundColor: '#000000'
     navigationBarTextStyle: 'white'
@@ -42,13 +43,16 @@ for page in pages
     pageName = path.basename page
     pageFilePath = appPath + pagePath + '/' + pageName
 
+    # 读取page和wxss代码
     pageCode = fs.readFileSync pageFilePath + '.js'
     cssCode = fs.readFileSync pageFilePath + '.wxss'
 
+
     outWxml appPath + pagePath, pageName, new Wxss cssCode.toString()
 
-    fs.writeFileSync "#{appPath + pagePath}/RN_#{pageName}.js", Template.createPage pageCode, pageName
+    #fs.writeFileSync "#{appPath + pagePath}/RN_#{pageName}.js", Template.createPage pageCode, pageName
 
+    # 转换page配置文件 .json
     if fs.existsSync pageFilePath + '.json'
         pageConfig = fs.readFileSync pageFilePath + '.json'
         routes[pageName] = _.extend defaultWindowConfig, JSON.parse pageConfig.toString()

@@ -1,5 +1,5 @@
 import App from './lib/app'
 import Page from './lib/page'
-import ViewParser from './lib/ViewParser'
+import Route from './lib/route'
 
-export default {App, Page, ViewParser}
+export default {App, Page, Route}
