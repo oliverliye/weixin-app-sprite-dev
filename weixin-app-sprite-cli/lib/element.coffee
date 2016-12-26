@@ -2,7 +2,7 @@ S = require 'string'
 _ = require 'underscore'
 wxdbrn = require 'wxdatabindrn'
 
-Config = require './config'
+Config = require '../config'
 
 isEventBind = (name)-> Config.bindEvents.indexOf(name) > -1
 

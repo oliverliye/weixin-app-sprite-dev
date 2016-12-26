@@ -78,7 +78,7 @@ export default ToolBar = React.createClass
                                 </View>
                             </TouchableOpacity>
                     
-        <View style={styles.container}>
+        <View style={[styles.container, {backgroundColor:@props.navigationBarBackgroundColor}]}>
             {
                 if @props.navigator
                     <View style={styles.navContainer}>
@@ -92,7 +92,7 @@ export default ToolBar = React.createClass
                     <View style={styles.navContainer}/>
             }
             <View style={styles.titleContainer}>
-                <Text style={styles.title}>{@props.title}</Text>
+                <Text style={[styles.title, {color:@props.navigationBarTextStyle}]}>{@props.title}</Text>
             </View> 
             <View style={styles.actionContainer}>
                 {showAlways}

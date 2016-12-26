@@ -1,9 +1,10 @@
 S = require 'string'
+_ = require 'underscore'
 path = require 'path'
 beautify = require('js-beautify').js_beautify
 wxdbrn = require 'wxdatabindrn'
 
-Config = require './config'
+Config = require '../config'
 
 
 module.exports =
@@ -29,6 +30,8 @@ module.exports =
                 #{Config.varPrefix}reactClass = #{Config.varPrefix}wxas.Page(data);
             }
 
+            wx = #{Config.varPrefix}wxas.wx;
+
             #{pageCode}
 
             export default #{Config.varPrefix}reactClass
@@ -36,14 +39,25 @@ module.exports =
 
     createRoute: (routes)->
         imports = []
-        for name, content of routes
-            imports.push """import #{name} from "./#{content.path}";"""
 
-        code = JSON.stringify routes
+        code = []
+
+        for name, content of routes
+            path = name.replace(/\/+/g, '/')
+            name = name.replace(/\/+/g, '_')
+            imports.push """import #{name} from "./#{path}";"""           
+            code.push "'#{name}': {"
+            code.push """#{k}: "#{v}", """ for k, v of content
+            code.push "component: #{name}"
+            code.push "},"
+
+        console.log _.keys(routes)
+        code.push """ __home__: "#{_.keys(routes)[0].replace(/\/+/g, '_')}" """
+
         beautify """
             #{imports.join ''}
 
-            export default #{code}
+            export default { #{code.join ''} }
         """
 
     createConfig: (code)->

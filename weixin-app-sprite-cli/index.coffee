@@ -20,9 +20,6 @@ appWxss = fs.readFileSync appPath + Config.rootWxss
 appConfig = JSON.parse appJson.toString()
 fs.writeFileSync "#{appPath}/RN_app_config.js", Template.createConfig appJson.toString()
 
-pages = appConfig.pages
-
-routes = {}
 
 # page 默认配置
 defaultWindowConfig = 
@@ -32,13 +29,11 @@ defaultWindowConfig =
     backgroundColor: '#ffffff'
     backgroundTextStyle: 'dark'
     enablePullDownRefresh: false
-defaultWindowConfig = _.extend defaultWindowConfig, appConfig.window
+defaultWindowConfig = _.extend {}, defaultWindowConfig, appConfig.window
 
 # 处理page
-
-pageList = []
-
-for page in pages
+routes = {}
+for page in appConfig.pages
     pagePath = path.dirname page
     pageName = path.basename page
     pageFilePath = appPath + pagePath + '/' + pageName
@@ -47,31 +42,24 @@ for page in pages
     pageCode = fs.readFileSync pageFilePath + '.js'
     cssCode = fs.readFileSync pageFilePath + '.wxss'
 
+    fs.writeFileSync "#{appPath + pagePath}/RN_#{pageName}.js", Template.createPage pageCode.toString(), pageName
+
 
     outWxml appPath + pagePath, pageName, new Wxss cssCode.toString()
-
-    #fs.writeFileSync "#{appPath + pagePath}/RN_#{pageName}.js", Template.createPage pageCode, pageName
 
     # 转换page配置文件 .json
     if fs.existsSync pageFilePath + '.json'
         pageConfig = fs.readFileSync pageFilePath + '.json'
-        routes[pageName] = _.extend defaultWindowConfig, JSON.parse pageConfig.toString()
+        routes[page] = _.extend {}, defaultWindowConfig, JSON.parse pageConfig.toString()
     else
-        routes[pageName] = defaultWindowConfig
+        routes[page] = defaultWindowConfig
 
-    routes[pageName].path = page
+    routes[page].path = pagePath
 
+    console.log routes[0]
+
+# 输出路由配置文件
 fs.writeFileSync "#{appPath}/RN_routes.js", Template.createRoute routes
-
-
-# if fs.existsSync pageFilePath + '.json'
-#         outPageConfig appPath + pagePath, pageName
-# outPageConfig = (path, pageName)->
-#     appJson = fs.readFileSync "#{path}/#{pageName}"
-#     fs.writeFileSync "#{appPath}/RN_#{pageName}_config.js", Template.createConfig appJson.toString() 
-
-
-
 
 
 

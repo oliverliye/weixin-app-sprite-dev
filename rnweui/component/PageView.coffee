@@ -18,15 +18,17 @@ export default React.createClass
 
     render: ()->
 
-        Page = this.props.page
+        Page = @props.page
 
-        <View style={{flex:1}}>
+        <View style={{flex:1, backgroundColor: Page.backgroundColor}}>
             {
                 if Page.showToolBar
                     <ToolBar 
                         ref="toolbar"
                         navigator={@props.navigator}
-                        title={Page.title}
+                        navigationBarTitleText={Page.navigationBarTitleText}
+                        navigationBarTextStyle={Page.navigationBarTextStyle}
+                        navigationBarBackgroundColor={Page.navigationBarBackgroundColor}
                         popupTitle={Page.popupTitle}
                         popupIcon={Page.popupIcon}
                         actions={Page.actions}
@@ -38,9 +40,9 @@ export default React.createClass
             {
                 if Page.showScrollView
                     <ScrollView>
-                        <Page.component navigator={@props.navigator} ref="page" route={@props.route} />
+                        <Page.component navigator={@props.navigator} ref="page"/>
                     </ScrollView>
                 else  
-                    <Page.component navigator={@props.navigator} ref="page" route={@props.route} /> 
+                    <Page.component navigator={@props.navigator} ref="page"/> 
             }
         </View>

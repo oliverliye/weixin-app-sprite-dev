@@ -7,7 +7,7 @@ _ = require('underscore');
 
 wxdbrn = require('wxdatabindrn');
 
-Config = require('./config');
+Config = require('../config');
 
 isEventBind = function(name) {
   return Config.bindEvents.indexOf(name) > -1;

@@ -11,7 +11,7 @@ wxssrn = require('wxssrn');
 
 wxdbrn = require('wxdatabindrn');
 
-Config = require('./config');
+Config = require('../config');
 
 parseClass = function(data) {
   var i, item, j, len, len1, name, ref, ref1, ref2, selector, selectors, style;

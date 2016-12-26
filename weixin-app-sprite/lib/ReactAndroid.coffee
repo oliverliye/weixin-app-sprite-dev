@@ -3,50 +3,38 @@ import  {
     Navigator
 }  from 'react-native'
 import RNWeui from 'rnweui'
-import wxas from 'weixin-app-sprite'
-
-View = null
-
-create = (appPath)->
-
-	return View if View
-
-	routes = require "./#{appPath}/RN_routes"
+import Route from './route'
+import Config from './config'
 
 
-	View = React.createClass
+export default React.createClass
 
-	    getInitialState: ()-> _isRoot: true
+    getInitialState: ()-> _isRoot: true
 
-	    componentDidMount: ()-> 
+    componentDidMount: ()-> 
 
-	    	wxas.Route.init @refs.navigator, routes
-	    	
-	        RNWeui.BackAndroid ()=>
-	            return false if @state._isRoot
-	            @refs.navigator.pop()
-	            true
+        Route.init @refs.navigator
+        
+        RNWeui.BackAndroid ()=>
+            return false if @state._isRoot
+            @refs.navigator.pop()
+            true
 
-	    _navigatorDidFocus: (route)->
-	        @state._isRoot = route.name is 'Home'
-	    
-	    render: ()->
-	        `<RNWeui.component.weui>
-	            <Navigator
-	                ref="navigator"
-	                initialRoute={Route.Home}
-	                onDidFocus={(route)=> this._navigatorDidFocus(route)}
-	                renderScene={this.renderNav}/>
-	        </RNWeui.component.weui>`
+    _navigatorDidFocus: (route)->
+        @state._isRoot = route.name is '__home__'
+    
+    render: ()->
+        `<RNWeui.component.weui>
+            <Navigator
+                ref="navigator"
+                initialRoute={Route['__home__']}
+                onDidFocus={(route)=> this._navigatorDidFocus(route)}
+                renderScene={@renderNav}/>
+        </RNWeui.component.weui>`
 
-	    renderNav: (route, nav)->
-	        Page = Route[route.name]
-	        `<View style={{flex:1,backgroundColor:'#e9eaed'}} >
-	            <RNWeui.component.pageview navigator={nav} page={Page} route={Route.create(nav)} />
-	        </View>`
-
-	View
-
-
-export default (appPath)-> create appPath
+    renderNav: (route, nav)->
+        Page = Route.getRoute[route.name]
+        `<View style={flex:1}>
+            <RNWeui.component.pageview navigator={nav} page={Page}/>
+        </View>`
 

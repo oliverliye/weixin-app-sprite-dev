@@ -4,7 +4,7 @@ $ = require 'cheerio'
 wxssrn = require 'wxssrn'
 wxdbrn = require 'wxdatabindrn'
 
-Config = require './config'
+Config = require '../config'
 
 parseClass = (data) ->
 

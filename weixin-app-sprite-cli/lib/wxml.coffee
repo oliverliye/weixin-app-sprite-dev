@@ -4,7 +4,6 @@ _ = require 'underscore'
 fs = require 'fs'
 wxdbrn = require 'wxdatabindrn'
 
-Config = require './Config'
 Utils = require './utils'
 Element = require './element'
 Template = require './template'
@@ -141,7 +140,7 @@ class WxmlLoader
             @imports[src] = (readWxmlFile @path, src).templates
             @importsArray.push @imports[src]
 
-        console.log @$wxml.html()
+        #console.log @$wxml.html()
 
     load: ()-> 
         @_pretreatment @path, @$wxml.root()
@@ -208,7 +207,7 @@ module.exports = (path, pageName, wxss = null)->
 
     {$wxml, templates} = readWxmlFile path, pageName + '.wxml'
 
-    console.log $wxml.html()
+    #console.log $wxml.html()
 
     wxss?.setToWxml $wxml
     view = 
@@ -220,7 +219,6 @@ module.exports = (path, pageName, wxss = null)->
 
     if view.styles
         fs.writeFileSync "#{path}/RN_#{pageName}_styles.js", Template.createStyle view.styles
-
 
     {templates, view}
 

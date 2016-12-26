@@ -1,6 +1,7 @@
 export default {
     "pages": [
-        "pages/index/index"
+        "pages/index/index",
+        "action/item//index"
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -4,21 +4,14 @@
  * @flow
  */
 
-import React from 'react';
 import {
   AppRegistry,
-  Text
 } from 'react-native';
 
-import Index from './testApp/pages/index/RN_index'
+import wxas from 'weixin-app-sprite'
+import config from './testApp/RN_app_config'
+import routes from './testApp/RN_routes'
 
-test = React.createClass({
-  render: function() {
-    //console.log(Index);
-    var a = <Text>aaa</Text>
-    console.log(Text);
-    return (<Index/>);
-  }
-});
+wxas.init config, routes
 
-AppRegistry.registerComponent('test', () => test);
+AppRegistry.registerComponent('test', () => wxas.WXView);

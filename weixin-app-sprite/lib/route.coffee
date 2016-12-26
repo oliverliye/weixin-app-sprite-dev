@@ -1,25 +1,27 @@
+import Config from 'config'
 
-Routes = null
+navigator = null
 
-Navigaotr = null
+stack = []
 
 export default {
 
-	init: (navigator, routes)-> 
-		Navigaotr = navigator
-		Routes = routes
+	init: (nav)-> navigator = nav
 
-	navigateTo: (params)->
+	navigateTo: (pageName)->
+		route = Config.getRoute pageName
+		navigator.push route
 
-
-	redirectTo: (params)->
-		Navigaotr.push()
-
-	switchTab: (params)->
-
+	redirectTo: (pageName)->
+		route = Config.getRoute pageName
+		navigator.resetTo route
 
 	navigateBack: (delta = 1)-> 
-		Navigaotr.pop()
+		routes = navigator.getCurrentRoutes()
+		index = routes.length
+		return if index < 0 or index - delta < 0
 
+		navigator.popToRoute routes[index - delta]
 
+	switchTab: (params)->
 }
