@@ -45,7 +45,7 @@ module.exports =
         for name, content of routes
             path = name.replace(/\/+/g, '/')
             name = name.replace(/\/+/g, '_')
-            imports.push """import #{name} from "./#{path}";"""           
+            imports.push """import #{name} from "./RN_#{path}";"""           
             code.push "'#{name}': {"
             code.push """#{k}: "#{v}", """ for k, v of content
             code.push "component: #{name}"

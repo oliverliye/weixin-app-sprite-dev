@@ -5,11 +5,12 @@ import Page from './lib/page'
 import Route from './lib/route'
 import Config from './lib/config'
 import Wx from './lib/wx'
+import WXView from './lib/ReactAndroid'
 
-WXView = Platform.select(
- 	ios: ()-> require './lib/ReactAndroid'
- 	android: ()-> require './lib/ReactIos'
-)()
+# if Platform.OS is 'ios'
+# 	import WXView from './lib/ReactIos'
+# else if Platform.OS is 'android'
+# 	import WXView from './lib/ReactAndroid'
 
 init = (config, routes)->
 	Config.setConfig config

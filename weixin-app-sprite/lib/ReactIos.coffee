@@ -1,32 +1,40 @@
+import React from 'react'
+import  {
+    Navigator
+}  from 'react-native'
+import RNWeui from 'rnweui'
+import Route from './route'
+import Config from './config'
 
 
 export default React.createClass
 
-        getInitialState: ()-> _isRoot: true
+    getInitialState: ()-> _isRoot: true
 
-        componentDidMount: ()-> 
+    componentDidMount: ()-> 
 
-            Route.init @refs.navigator
-            
-            RNWeui.BackAndroid ()=>
-                return false if @state._isRoot
-                @refs.navigator.pop()
-                true
-
-        _navigatorDidFocus: (route)->
-            @state._isRoot = route.name is 'Home'
+        Route.init @refs.navigator
         
-        render: ()->
-            `<RNWeui.component.weui>
-                <Navigator
-                    ref="navigator"
-                    initialRoute={Route.Home}
-                    onDidFocus={(route)=> this._navigatorDidFocus(route)}
-                    renderScene={this.renderNav}/>
-            </RNWeui.component.weui>`
+        RNWeui.BackAndroid ()=>
+            return false if @state._isRoot
+            @refs.navigator.pop()
+            true
 
-        renderNav: (route, nav)->
-            Page = Route[route.name]
-            `<View style={{flex:1,backgroundColor:'#e9eaed'}} >
-                <RNWeui.component.pageview navigator={nav} page={Page} route={Route.create(nav)} />
-            </View>`
+    _navigatorDidFocus: (route)->
+        @state._isRoot = route.name is '__home__'
+    
+    render: ()->
+        <RNWeui.component.weui>
+            <Navigator
+                ref="navigator"
+                initialRoute={Route['__home__']}
+                onDidFocus={(route)=> @_navigatorDidFocus(route)}
+                renderScene={@renderNav}/>
+        </RNWeui.component.weui>
+
+    renderNav: (route, nav)->
+        Page = Route.getRoute[route.name]
+        <View style={flex:1}>
+            <RNWeui.component.pageview navigator={nav} page={Page}/>
+        </View>
+

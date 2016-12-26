@@ -12,6 +12,7 @@
     "babel-preset-react-native": "^1.9.0",
     "react": "15.3.2",
     "react-native": "0.36.1",
+    "react-native-vector-icons": "^3.0.0",
     "string": "^3.3.3"
   },
   "jest": {
@@ -20,7 +21,7 @@
   "devDependencies": {
     "babel-jest": "16.0.0",
     "babel-plugin-transform-react-jsx": "^6.8.0",
-    "babel-preset-react-native": "1.9.0",
+    "babel-preset-react-native": "1.9.1",
     "jest": "16.0.2",
     "jest-react-native": "16.1.0",
     "react-test-renderer": "15.3.2"

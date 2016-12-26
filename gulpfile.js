@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var coffee = require('gulp-coffee');
 var coffeeReactTransform = require('gulp-coffee-react-transform');
 var babel = require('gulp-babel');
+var coffeelint = require('gulp-coffeelint');
 
 coffeeConfig = {
 	bare: true
@@ -60,13 +61,12 @@ gulp.task('npm-cli', ['cli-src', 'cli-release']);
 // rnweui
 
 gulp.task('rnweui', function() {
-	var coffeelint = require('gulp-coffeelint');
-
+	
 	return gulp.src(paths.rnweui.code)
 
 		.pipe(coffeeReactTransform())
 		.pipe(coffeelint())
-    	.pipe(coffeelint.reporter())
+    	//.pipe(coffeelint.reporter())
 		.pipe(coffee(coffeeConfig))
 		//.pipe(babel(babelConfig))
 		.pipe(gulp.dest("./test/node_modules/rnweui"));
@@ -91,14 +91,19 @@ gulp.task('npm-rnweui', ['rnweui-src', 'rnweui-release']);
 
 gulp.task('sprite', function() {
 	return gulp.src(paths.sprite.code)
+		.pipe(coffeeReactTransform())
+		.pipe(coffeelint())
+    	.pipe(coffeelint.reporter())
 		.pipe(coffee(coffeeConfig))
 		.pipe(gulp.dest("./test/node_modules/weixin-app-sprite"));
 });
 
 gulp.task('sprite-release', function() {
 	return gulp.src(paths.sprite.code)
+		.pipe(coffeeReactTransform())
+		.pipe(coffeelint())
+    	.pipe(coffeelint.reporter())
 		.pipe(coffee(coffeeConfig))
-		.pipe(babel(babelConfig))
 		.pipe(gulp.dest("../weixin-app-sprite"));
 });
 

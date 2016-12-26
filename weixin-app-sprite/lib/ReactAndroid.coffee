@@ -24,17 +24,17 @@ export default React.createClass
         @state._isRoot = route.name is '__home__'
     
     render: ()->
-        `<RNWeui.component.weui>
+        <RNWeui.component.weui>
             <Navigator
                 ref="navigator"
                 initialRoute={Route['__home__']}
-                onDidFocus={(route)=> this._navigatorDidFocus(route)}
+                onDidFocus={(route)=> @_navigatorDidFocus(route)}
                 renderScene={@renderNav}/>
-        </RNWeui.component.weui>`
+        </RNWeui.component.weui>
 
     renderNav: (route, nav)->
         Page = Route.getRoute[route.name]
-        `<View style={flex:1}>
+        <View style={flex:1}>
             <RNWeui.component.pageview navigator={nav} page={Page}/>
-        </View>`
+        </View>
 
