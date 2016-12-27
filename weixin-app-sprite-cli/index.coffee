@@ -44,8 +44,9 @@ for page in appConfig.pages
 
     fs.writeFileSync "#{appPath + pagePath}/RN_#{pageName}.js", Template.createPage pageCode.toString(), pageName
 
+    wxss = new Wxss cssCode.toString()
 
-    outWxml appPath + pagePath, pageName, new Wxss cssCode.toString()
+    outWxml appPath + pagePath, pageName, wxss
 
     # 转换page配置文件 .json
     if fs.existsSync pageFilePath + '.json'

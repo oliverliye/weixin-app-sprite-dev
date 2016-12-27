@@ -69,7 +69,7 @@ module.exports =
         beautify """
             import {StyleSheet} from 'react-native';
 
-            export default #{wxss}
+            export default StyleSheet.create({#{wxss}});
         """
 
     createPageProvider: (wxml, pageName)->

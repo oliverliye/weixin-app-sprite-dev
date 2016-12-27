@@ -9,7 +9,7 @@ import Config from './config'
 
 export default React.createClass
 
-    getInitialState: ()-> _isRoot: true
+    getInitialState: ()-> isRoot: true
 
     componentDidMount: ()-> 
 
@@ -20,20 +20,20 @@ export default React.createClass
             @refs.navigator.pop()
             true
 
-    _navigatorDidFocus: (route)->
-        @state._isRoot = route.name is '__home__'
+    navigatorDidFocus: (route)->
+        @state.isRoot = route.name is '__home__'
     
     render: ()->
         <RNWeui.component.weui>
             <Navigator
                 ref="navigator"
-                initialRoute={Route['__home__']}
-                onDidFocus={(route)=> @_navigatorDidFocus(route)}
+                initialRoute={Config.getRoute '__home__'}
+                onDidFocus={(route)=> @navigatorDidFocus(route)}
                 renderScene={@renderNav}/>
         </RNWeui.component.weui>
 
     renderNav: (route, nav)->
-        Page = Route.getRoute[route.name]
+        Page = Config.getRoute route.name
         <View style={flex:1}>
             <RNWeui.component.pageview navigator={nav} page={Page}/>
         </View>

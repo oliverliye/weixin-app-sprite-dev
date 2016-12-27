@@ -69,6 +69,7 @@ Wxss = (function() {
       }
       return 0;
     });
+    console.log(this.selectors);
   }
 
   Wxss.prototype.setToWxml = function(wxml) {
@@ -151,7 +152,31 @@ Wxss = (function() {
     if (styles.length <= 0) {
       return null;
     } else {
-      return "StyleSheet.create({" + (styles.join(",")) + "});";
+      return styles.join(",");
+    }
+  };
+
+  Wxss.prototype.toClassCode = function() {
+    var content, i, item, len, name, props, ref, ref1, styles;
+    styles = [];
+    ref = this.selectors;
+    for (i = 0, len = ref.length; i < len; i++) {
+      item = ref[i];
+      if (item.priority !== 100) {
+        continue;
+      }
+      props = [];
+      ref1 = item.style;
+      for (name in ref1) {
+        content = ref1[name];
+        props.push(name + ": " + content);
+      }
+      styles.push(item.selector + ":{" + (props.join(",")) + "}");
+    }
+    if (styles.length <= 0) {
+      return null;
+    } else {
+      return styles.join(",");
     }
   };
 

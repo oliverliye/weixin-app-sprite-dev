@@ -240,7 +240,7 @@ readWxmlFile = function(path, pageName) {
 };
 
 module.exports = function(path, pageName, wxss) {
-  var $wxml, pageProvider, ref, templates, view;
+  var $wxml, element, pageProvider, ref, templates;
   if (wxss == null) {
     wxss = null;
   }
@@ -248,17 +248,11 @@ module.exports = function(path, pageName, wxss) {
   if (wxss != null) {
     wxss.setToWxml($wxml);
   }
-  view = {
-    element: (new Wxml(path, $wxml)).parse(),
-    styles: wxss != null ? wxss.toStyleCode() : void 0
-  };
-  pageProvider = Template.createPageProvider(view.element.toCode(), pageName);
+  element = (new Wxml(path, $wxml)).parse();
+  pageProvider = Template.createPageProvider(element.toCode(), pageName);
   fs.writeFileSync(path + "/RN_" + pageName + "_provider.js", pageProvider);
-  if (view.styles) {
-    fs.writeFileSync(path + "/RN_" + pageName + "_styles.js", Template.createStyle(view.styles));
+  if (wxss) {
+    fs.writeFileSync(path + "/RN_" + pageName + "_styles.js", Template.createStyle(wxss.toStyleCode()));
+    return fs.writeFileSync(path + "/RN_" + pageName + "_class.js", Template.createStyle(wxss.toClassCode()));
   }
-  return {
-    templates: templates,
-    view: view
-  };
 };

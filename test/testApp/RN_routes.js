@@ -1,5 +1,5 @@
-import pages_index_index from "./pages/index/RN_index";
-import action_item_index from "./action/item/RN_index";
+import pages_index_index from "./RN_pages/index/index";
+import action_item_index from "./RN_action/item/index";
 
 export default {
     'pages_index_index': {

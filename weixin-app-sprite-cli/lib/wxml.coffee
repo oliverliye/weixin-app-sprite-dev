@@ -210,18 +210,15 @@ module.exports = (path, pageName, wxss = null)->
     #console.log $wxml.html()
 
     wxss?.setToWxml $wxml
-    view = 
-        element: (new Wxml path, $wxml).parse()
-        styles: wxss?.toStyleCode()
+  
+    element = (new Wxml path, $wxml).parse()
 
-    pageProvider = Template.createPageProvider view.element.toCode(), pageName
+    pageProvider = Template.createPageProvider element.toCode(), pageName
     fs.writeFileSync "#{path}/RN_#{pageName}_provider.js", pageProvider
 
-    if view.styles
-        fs.writeFileSync "#{path}/RN_#{pageName}_styles.js", Template.createStyle view.styles
-
-    {templates, view}
-
+    if wxss
+        fs.writeFileSync "#{path}/RN_#{pageName}_styles.js", Template.createStyle wxss.toStyleCode()
+        fs.writeFileSync "#{path}/RN_#{pageName}_class.js", Template.createStyle wxss.toClassCode()
 
 
 

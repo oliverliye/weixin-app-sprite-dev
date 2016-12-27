@@ -25,7 +25,7 @@ module.exports = {
       content = routes[name];
       path = name.replace(/\/+/g, '/');
       name = name.replace(/\/+/g, '_');
-      imports.push("import " + name + " from \"./" + path + "\";");
+      imports.push("import " + name + " from \"./RN_" + path + "\";");
       code.push("'" + name + "': {");
       for (k in content) {
         v = content[k];
@@ -42,7 +42,7 @@ module.exports = {
     return beautify("export default " + code);
   },
   createStyle: function(wxss) {
-    return beautify("import {StyleSheet} from 'react-native';\n\nexport default " + wxss);
+    return beautify("import {StyleSheet} from 'react-native';\n\nexport default StyleSheet.create({" + wxss + "});");
   },
   createPageProvider: function(wxml, pageName) {
     return beautify("import " + Config.varPrefix + "React from 'react';\nimport " + Config.varPrefix + "ReactNative from 'react-native';\nimport " + Config.varPrefix + "styles from './RN_" + pageName + "_styles';\nimport " + Config.varPrefix + "template from 'weixin-app-sprite';\nimport " + Config.varPrefix + "rnweui from 'rnweui';\n" + Config.varPrefix + "component = R_$wxas$_rnweui.component\n\nexport default function(" + Config.varPrefix + "page) {\n\n    " + Config.varPrefix + "varBindArray = [];\n\n    for(" + Config.varPrefix + "key in " + Config.varPrefix + "page.state)\n\n      " + Config.varPrefix + "varBindArray.push(\"var \" + " + Config.varPrefix + "key + \"=" + Config.varPrefix + "page['\" + " + Config.varPrefix + "key + \"'];\");\n\n    eval(" + Config.varPrefix + "varBindArray.join(''));\n\n    return " + (S(wxml).replaceAll("React.createElement", Config.varPrefix + "React.createElement").s) + ";\n}");

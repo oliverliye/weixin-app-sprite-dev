@@ -57,6 +57,8 @@ class Wxss
             return 1 if v1.priority > v2.priority
             return 0
 
+        console.log @selectors
+
 
     setToWxml: (wxml)->
         @styles = {}
@@ -124,7 +126,23 @@ class Wxss
         if styles.length <= 0
             return null
         else
-            """StyleSheet.create({#{styles.join ","}});"""
+            styles.join ","
+
+    toClassCode: ()->
+
+        styles  = []
+        for item in @selectors
+            continue unless item.priority is 100
+            props = []
+            for name, content of item.style
+                props.push "#{name}: #{content}"
+            styles.push """#{item.selector}:{#{props.join ","}}"""
+
+        if styles.length <= 0
+            return null
+        else
+            styles.join ","
+
 
 module.exports = Wxss
 
