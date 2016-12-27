@@ -1,5 +1,5 @@
-import pages_index_index from "./RN_pages/index/index";
-import action_item_index from "./RN_action/item/index";
+import pages_index_index from "./pages/index/RN_index";
+import action_item_index from "./action/item/RN_index";
 
 export default {
     'pages_index_index': {
@@ -10,7 +10,8 @@ export default {
         backgroundTextStyle: "light",
         enablePullDownRefresh: "false",
         path: "pages/index",
-        component: pages_index_index
+        component: pages_index_index,
+        name: 'pages_index_index'
     },
     'action_item_index': {
         navigationBarBackgroundColor: "#888",
@@ -20,7 +21,8 @@ export default {
         backgroundTextStyle: "light",
         enablePullDownRefresh: "false",
         path: "action/item/",
-        component: action_item_index
+        component: action_item_index,
+        name: 'action_item_index'
     },
     __home__: "pages_index_index"
 }

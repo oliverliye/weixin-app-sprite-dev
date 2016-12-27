@@ -43,15 +43,16 @@ module.exports =
         code = []
 
         for name, content of routes
-            path = name.replace(/\/+/g, '/')
+            pathname = name.replace(/\/+/g, '/')
             name = name.replace(/\/+/g, '_')
-            imports.push """import #{name} from "./RN_#{path}";"""           
+
+            imports.push """import #{name} from "./#{path.dirname pathname}/RN_#{path.basename pathname}";"""           
             code.push "'#{name}': {"
             code.push """#{k}: "#{v}", """ for k, v of content
-            code.push "component: #{name}"
+            code.push "component: #{name},"
+            code.push "name: '#{name}'"
             code.push "},"
 
-        console.log _.keys(routes)
         code.push """ __home__: "#{_.keys(routes)[0].replace(/\/+/g, '_')}" """
 
         beautify """

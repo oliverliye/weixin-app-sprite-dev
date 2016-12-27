@@ -27,7 +27,7 @@ export default function(R_$wxas$_page) {
                 R_$wxas$_React.createElement(
                     R_$wxas$_component.text,
                     null,
-                    " oddoddoddoddodd "
+                    " ddddddddddddddddd "
                 )
             );
         }()

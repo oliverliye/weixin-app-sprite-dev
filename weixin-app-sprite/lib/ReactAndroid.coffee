@@ -1,5 +1,6 @@
 import React from 'react'
 import  {
+    View
     Navigator
 }  from 'react-native'
 import RNWeui from 'rnweui'
@@ -15,7 +16,7 @@ export default React.createClass
 
         Route.init @refs.navigator
         
-        RNWeui.BackAndroid ()=>
+        RNWeui.backAndroid ()=>
             return false if @state._isRoot
             @refs.navigator.pop()
             true
@@ -27,7 +28,7 @@ export default React.createClass
         <RNWeui.component.weui>
             <Navigator
                 ref="navigator"
-                initialRoute={Config.getRoute '__home__'}
+                initialRoute={Config.getRoute(Config.getRoute '__home__')}
                 onDidFocus={(route)=> @navigatorDidFocus(route)}
                 renderScene={@renderNav}/>
         </RNWeui.component.weui>

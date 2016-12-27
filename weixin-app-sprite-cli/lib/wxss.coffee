@@ -136,7 +136,7 @@ class Wxss
             props = []
             for name, content of item.style
                 props.push "#{name}: #{content}"
-            styles.push """#{item.selector}:{#{props.join ","}}"""
+            styles.push """#{S(item.selector).camelize().replaceAll(".", "").s}:{#{props.join ","}}"""
 
         if styles.length <= 0
             return null

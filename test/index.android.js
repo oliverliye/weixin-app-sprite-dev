@@ -12,8 +12,6 @@ import config from './testApp/RN_app_config';
 
 import routes from './testApp/RN_routes';
 
-import ReactAndroid from './ReactAndroid';
-
 wxas.init(config, routes);
 
 aa = React.createClass({

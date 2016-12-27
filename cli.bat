@@ -1,0 +1,1 @@
+coffee -bcwo ./cli ./weixin-app-sprite-cli
