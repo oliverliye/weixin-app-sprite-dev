@@ -16,9 +16,9 @@ export default React.createClass
     propTypes: 
         type: React.PropTypes.oneOf ['primary', 'default', 'warn']
         formType: React.PropTypes.oneOf ['submit', 'reset']
-        plain: React.PropTypes.boolean
-        disable: React.PropTypes.boolean
-        loading: React.PropTypes.boolean
+        plain: React.PropTypes.bool
+        disable: React.PropTypes.bool
+        loading: React.PropTypes.bool
         label: React.PropTypes.string
         onPress: React.PropTypes.func
 

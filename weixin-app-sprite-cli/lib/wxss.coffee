@@ -57,7 +57,7 @@ class Wxss
             return 1 if v1.priority > v2.priority
             return 0
 
-        console.log @selectors
+        #console.log @selectors
 
 
     setToWxml: (wxml)->

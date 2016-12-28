@@ -9,6 +9,7 @@ import view from './component/View'
 import text from './component/Text'
 import button from './component/Button'
 import pageview from './component/PageView'
+import toolbar from './component/ToolBar'
 import weui from './component/Weui'
 
 rnweui =
@@ -49,6 +50,7 @@ rnweui =
     component: {
         weui,
         pageview,
+        toolbar,
         view,
         text,
         button

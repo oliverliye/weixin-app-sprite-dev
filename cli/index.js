@@ -60,7 +60,6 @@ for (i = 0, len = ref.length; i < len; i++) {
     routes[page] = defaultWindowConfig;
   }
   routes[page].path = pagePath;
-  console.log(routes[0]);
 }
 
 fs.writeFileSync(appPath + "/RN_routes.js", Template.createRoute(routes));

@@ -27,9 +27,35 @@ export default function(R_$wxas$_page) {
                 R_$wxas$_React.createElement(
                     R_$wxas$_component.text,
                     null,
-                    " ddddddddddddddddd "
+                    ' ddddddddddddddddd '
                 )
             );
+        }(),
+        R_$wxas$_React.createElement(R_$wxas$_component.button, {
+            label: 'aaaa'
+        }),
+        function() {
+            R_$wxas$_data = [1, 2, 3, 4];
+            R_$wxas$_result = [];
+
+            for (var R_$wxas$_index = 0; R_$wxas$_index < R_$wxas$_data.length; R_$wxas$_index++) {
+                var item = R_$wxas$_data[index];
+                var index = R_$wxas$_index;
+                R_$wxas$_result.push(R_$wxas$_React.createElement(
+                    R_$wxas$_component.view,
+                    {key: R_$wxas$_index},
+                    R_$wxas$_React.createElement(
+                        R_$wxas$_component.text, {
+                            style: [R_$wxas$_styles.style1]
+                            
+                        },
+                        ' ',
+                        item,
+                        ' '
+                    )
+                ));
+            }
+            return R_$wxas$_result;
         }()
     );;
 }

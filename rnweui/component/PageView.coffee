@@ -16,13 +16,13 @@ export default React.createClass
 
         Component = @props.component
 
-        <View style={{flex:1, backgroundColor: Page.backgroundColor}}>
+        <View style={{flex:1, backgroundColor: @props.backgroundColor}}>
             {
                 if @props.showToolBar
                     <ToolBar 
                         ref="toolbar"
                         navigator={@props.navigator}
- 
+                        backgroundColor={@props.navigationBarBackgroundColor}
                         onActionSelected={@onActionSelected}/> 
                 else
                     null

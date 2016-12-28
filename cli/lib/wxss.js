@@ -69,7 +69,6 @@ Wxss = (function() {
       }
       return 0;
     });
-    console.log(this.selectors);
   }
 
   Wxss.prototype.setToWxml = function(wxml) {

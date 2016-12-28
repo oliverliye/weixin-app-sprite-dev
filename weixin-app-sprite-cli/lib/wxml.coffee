@@ -213,6 +213,7 @@ module.exports = (path, pageName, wxss = null)->
   
     element = (new Wxml path, $wxml).parse()
 
+    console.log element.toJsx()
     pageProvider = Template.createPageProvider element.toCode(), pageName
     fs.writeFileSync "#{path}/RN_#{pageName}_provider.js", pageProvider
 

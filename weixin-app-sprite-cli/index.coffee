@@ -57,7 +57,6 @@ for page in appConfig.pages
 
     routes[page].path = pagePath
 
-    console.log routes[0]
 
 # 输出路由配置文件
 fs.writeFileSync "#{appPath}/RN_routes.js", Template.createRoute routes

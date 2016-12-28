@@ -78,7 +78,7 @@ export default ToolBar = React.createClass
                                 </View>
                             </TouchableOpacity>
                     
-        <View style={[styles.container, {backgroundColor:@props.navigationBarBackgroundColor}]}>
+        <View style={[styles.container, {backgroundColor:@props.backgroundColor}]}>
             {
                 if @props.navigator
                     <View style={styles.navContainer}>

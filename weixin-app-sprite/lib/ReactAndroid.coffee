@@ -2,6 +2,7 @@ import React from 'react'
 import  {
     View
     Navigator
+    ScrollView
 }  from 'react-native'
 import RNWeui from 'rnweui'
 import Route from './route'
@@ -35,15 +36,14 @@ export default React.createClass
 
     renderNav: (route, nav)->
         Page = Config.getRoute route.name
-        <View style={flex:1}>
-            <RNWeui.component.pageview 
+        <View style={flex:1, backgroundColor: Page.backgroundColor}>
+            <RNWeui.component.toolbar 
                 navigator={nav} 
-                backgroundColor={Page.backgroundColor}
-                navigationBarTitleText={Page.navigationBarTitleText}
+                title={Page.navigationBarTitleText}
                 navigationBarTextStyle={Page.navigationBarTextStyle}
-                navigationBarBackgroundColor={Page.navigationBarBackgroundColor}
-                showToolBar={true}
-                showScrollView={true}
-                component={Page.component}/>
+                backgroundColor={Page.navigationBarBackgroundColor}/>
+            <ScrollView>
+                <Page.component ref="page"/>
+            </ScrollView>
         </View>
 

@@ -8,7 +8,12 @@
   	<view class="userinfo"> ddddddddddddddddd </view>
   </template>
   <view class="userinfo"> oddoddoddoddodd </view>
+  <button label="aaaa"></button>
 </template>
 
 
 <template is="ddddd"/>
+<button label="aaaa"></button>
+<view wx:for="{{[1,2,3,4]}}">
+{{item}}
+</view>

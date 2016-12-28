@@ -249,6 +249,7 @@ module.exports = function(path, pageName, wxss) {
     wxss.setToWxml($wxml);
   }
   element = (new Wxml(path, $wxml)).parse();
+  console.log(element.toJsx());
   pageProvider = Template.createPageProvider(element.toCode(), pageName);
   fs.writeFileSync(path + "/RN_" + pageName + "_provider.js", pageProvider);
   if (wxss) {
