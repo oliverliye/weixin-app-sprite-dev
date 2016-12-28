@@ -1,12 +1,8 @@
 import React from 'react'
 import  {
     View
-    Text
-    Image
     StyleSheet
     ScrollView
-    TouchableOpacity
-    Animated
 }  from 'react-native'
 
 import ToolBar from './ToolBar'
@@ -18,31 +14,29 @@ export default React.createClass
 
     render: ()->
 
-        Page = @props.page
+        Component = @props.component
 
         <View style={{flex:1, backgroundColor: Page.backgroundColor}}>
             {
-                if Page.showToolBar
+                if @props.showToolBar
                     <ToolBar 
                         ref="toolbar"
                         navigator={@props.navigator}
-                        navigationBarTitleText={Page.navigationBarTitleText}
-                        navigationBarTextStyle={Page.navigationBarTextStyle}
-                        navigationBarBackgroundColor={Page.navigationBarBackgroundColor}
-                        popupTitle={Page.popupTitle}
-                        popupIcon={Page.popupIcon}
-                        actions={Page.actions}
-                        onActionSelected={@onActionSelected}
-                    /> 
+ 
+                        onActionSelected={@onActionSelected}/> 
                 else
                     null
             }
             {
-                if Page.showScrollView
+                if @props.showScrollView
                     <ScrollView>
-                        <Page.component navigator={@props.navigator} ref="page"/>
+                        <Component ref="page"/>
                     </ScrollView>
                 else  
-                    <Page.component navigator={@props.navigator} ref="page"/> 
+                    <Component ref="page"/>
             }
         </View>
+
+# popupTitle={Page.popupTitle}
+# popupIcon={Page.popupIcon}
+# actions={Page.actions}

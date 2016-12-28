@@ -36,6 +36,14 @@ export default React.createClass
     renderNav: (route, nav)->
         Page = Config.getRoute route.name
         <View style={flex:1}>
-            <RNWeui.component.pageview navigator={nav} page={Page}/>
+            <RNWeui.component.pageview 
+                navigator={nav} 
+                backgroundColor={Page.backgroundColor}
+                navigationBarTitleText={Page.navigationBarTitleText}
+                navigationBarTextStyle={Page.navigationBarTextStyle}
+                navigationBarBackgroundColor={Page.navigationBarBackgroundColor}
+                showToolBar={true}
+                showScrollView={true}
+                component={Page.component}/>
         </View>
 
