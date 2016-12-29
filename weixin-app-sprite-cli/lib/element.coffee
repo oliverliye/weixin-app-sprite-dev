@@ -57,10 +57,8 @@ parse = (element, parent)->
         style.push "#{Config.varPrefix}styles.style#{element.styleIndex}"
     if element.hasOwnProperty 'style'
         style.push element['style']
-    if style.length > 0
-        style = "style={[#{style.join()}]}"
-    else
-        style = ''
+
+    style = if style.length > 0 then "style={[#{style.join()}]}" else ''
 
     if element.type is 'tag'
         tagName = element.name
@@ -70,13 +68,26 @@ parse = (element, parent)->
         if element.name is 'template'
             ret = S(element.template).template render: children.join('')
         else
-            ret = S(element.template).template(render: "<#{Config.varPrefix}component.#{tagName} #{element.attrsStr} #{style}>#{children.join('')}</#{Config.varPrefix}component.#{tagName}>").s
+            ret = S(element.template).template(
+                render: """
+                    <#{Config.varPrefix}component.#{tagName} 
+                        #{element.attrsStr} 
+                        #{style}
+                        __class={#{Config.varPrefix}class}>
+                        #{children.join('')}
+                    </#{Config.varPrefix}component.#{tagName}>"""
+            ).s
 
     else if element.type is 'text'
         if parent?.name is 'text'
-             ret = S(element.template).template(render: "#{parent.text}").s
+            ret = S(element.template).template(render: "#{parent.text}").s
         else
-             ret = S(element.template).template(render: "<#{Config.varPrefix}component.text #{element.attrsStr} #{style}>#{parent.text}</#{Config.varPrefix}component.text>").s
+            ret = S(element.template).template(
+                render: """
+                    <#{Config.varPrefix}component.text #{element.attrsStr} #{style}>
+                        #{parent.text}
+                    </#{Config.varPrefix}component.text>"""
+            ).s
 
     ret
 

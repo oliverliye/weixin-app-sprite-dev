@@ -213,13 +213,13 @@ module.exports = (path, pageName, wxss = null)->
   
     element = (new Wxml path, $wxml).parse()
 
-    console.log element.toJsx()
+    #console.log element.toJsx()
+
     pageProvider = Template.createPageProvider element.toCode(), pageName
     fs.writeFileSync "#{path}/RN_#{pageName}_provider.js", pageProvider
+    fs.writeFileSync "#{path}/RN_#{pageName}_styles.js", Template.createStyle if wxss then wxss.toStyleCode() else ''
+    fs.writeFileSync "#{path}/RN_#{pageName}_class.js", Template.createStyle if wxss then wxss.toClassCode() else ''
 
-    if wxss
-        fs.writeFileSync "#{path}/RN_#{pageName}_styles.js", Template.createStyle wxss.toStyleCode()
-        fs.writeFileSync "#{path}/RN_#{pageName}_class.js", Template.createStyle wxss.toClassCode()
 
 
 

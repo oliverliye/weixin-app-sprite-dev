@@ -9,6 +9,6 @@ export default StyleSheet.create({
     },
     style1: {
         color: 'red',
-        paddingTop: 1
+        paddingTop: 200
     }
 });

@@ -38,13 +38,13 @@ for page in appConfig.pages
     pageName = path.basename page
     pageFilePath = appPath + pagePath + '/' + pageName
 
-    # 读取page和wxss代码
     pageCode = fs.readFileSync pageFilePath + '.js'
-    cssCode = fs.readFileSync pageFilePath + '.wxss'
-
     fs.writeFileSync "#{appPath + pagePath}/RN_#{pageName}.js", Template.createPage pageCode.toString(), pageName
 
-    wxss = new Wxss cssCode.toString()
+    wxss = null
+    if fs.existsSync pageFilePath + '.wxss'
+        cssCode = fs.readFileSync pageFilePath + '.wxss'
+        wxss = new Wxss cssCode.toString()
 
     outWxml appPath + pagePath, pageName, wxss
 

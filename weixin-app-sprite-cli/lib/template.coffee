@@ -79,6 +79,7 @@ module.exports =
             import #{Config.varPrefix}React from 'react';
             import #{Config.varPrefix}ReactNative from 'react-native';
             import #{Config.varPrefix}styles from './RN_#{pageName}_styles';
+            import #{Config.varPrefix}class from './RN_#{pageName}_class';
             import #{Config.varPrefix}template from 'weixin-app-sprite';
             import #{Config.varPrefix}rnweui from 'rnweui';
             #{Config.varPrefix}component = R_$wxas$_rnweui.component
