@@ -4,17 +4,19 @@ import  {
     View
     StyleSheet
     TouchableHighlight
-    PanResponder
 }  from 'react-native'
+import _ from  'underscore'
 
 import RNWeui from '../rnweui'
 import Icons from './Icons'
 import Color from './Color'
+import EventPropTypes from './EventPropTypes'
+import PanResponder from './PanResponder'
 
 
 export default React.createClass
    
-    propTypes: 
+    propTypes: _.extend 
         type: React.PropTypes.oneOf ['primary', 'default', 'warn']
         formType: React.PropTypes.oneOf ['submit', 'reset']
         size: React.PropTypes.oneOf ['default', 'mini']
@@ -23,39 +25,11 @@ export default React.createClass
         loading: React.PropTypes.bool
         label: React.PropTypes.string
         onPress: React.PropTypes.func
+    , EventPropTypes
 
     componentWillMount: ()->
-        @_panResponder = PanResponder.create
-            onStartShouldSetPanResponder: (evt, gestureState) => true
-            onStartShouldSetPanResponderCapture: (evt, gestureState) => false
-            onMoveShouldSetPanResponder: (evt, gestureState) => true
-            onMoveShouldSetPanResponderCapture: (evt, gestureState) => false
-            onPanResponderTerminationRequest: (evt, gestureState) => true
-
-            onPanResponderGrant: (e, gestureState) => 
-                @state.setOnceOffset = true
-                if @state.scrollState isnt 'none'
-                    @state.top.stopAnimation()
-
-            onPanResponderMove: (e, gestureState)=>
-
-                if @state.setOnceOffset is true
-                    @state.top.setOffset  @state.top._value
-                    @state.setOnceOffset = false
-
-                Animated.event([null, dy:@state.top])(e, gestureState)
-
-            onPanResponderRelease: (e, gestureState) => 
-                @state.top.flattenOffset()
-
-                if @state.top._value > 0 or @state.scrollState is 'toTop'
-                    @_toTop()
-                else if @state.top._value < 0 and @state.viewHeight <= 500
-                    @_toTop()
-                else if @state.viewHeight > 500 and Math.abs(@state.top._value) > Math.abs (500 - @state.viewHeight)
-                    @_toBottom()
-                else
-                    @_decaying gestureState.vy
+        
+        @_panPesponder = PanResponder @
 
     render: ()->
 
