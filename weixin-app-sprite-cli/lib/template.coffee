@@ -30,7 +30,7 @@ module.exports =
                 #{Config.varPrefix}reactClass = #{Config.varPrefix}wxas.Page(data);
             }
 
-            wx = #{Config.varPrefix}wxas.wx;
+            wx = #{Config.varPrefix}wxas.Wx;
 
             #{pageCode}
 
@@ -78,10 +78,12 @@ module.exports =
         beautify """
             import #{Config.varPrefix}React from 'react';
             import #{Config.varPrefix}ReactNative from 'react-native';
+            import #{Config.varPrefix}wxssrn from 'wxssrn';
+            import #{Config.varPrefix}rnweui from 'rnweui';
+
             import #{Config.varPrefix}styles from './RN_#{pageName}_styles';
             import #{Config.varPrefix}class from './RN_#{pageName}_class';
-            import #{Config.varPrefix}template from 'weixin-app-sprite';
-            import #{Config.varPrefix}rnweui from 'rnweui';
+
             #{Config.varPrefix}component = R_$wxas$_rnweui.component
 
             export default function(#{Config.varPrefix}page) {

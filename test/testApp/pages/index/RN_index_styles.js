@@ -8,7 +8,9 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     style1: {
-        color: 'red',
-        paddingTop: 200
+        backgroundColor: 'green'
+    },
+    style2: {
+        color: 'black'
     }
 });

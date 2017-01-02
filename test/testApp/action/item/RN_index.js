@@ -17,7 +17,7 @@ var Page = function(data) {
     R_$wxas$_reactClass = R_$wxas$_wxas.Page(data);
 }
 
-wx = R_$wxas$_wxas.wx;
+wx = R_$wxas$_wxas.Wx;
 
 //index.js
 //获取应用实例
@@ -27,7 +27,20 @@ Page({
     },
     onLoad: function() {
         console.log('onLoad')
+    },
+    tapButton: function() {
+        console.log('tapButton');
+        wx.navigateBack()
+    },
+
+    redirectButton: function() {
+        console.log('tapButton');
+        wx.redirectTo({
+            url: 'pages_index_index'
+        });
     }
+
+
 })
 
 

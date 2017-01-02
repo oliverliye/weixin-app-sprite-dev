@@ -13,7 +13,7 @@
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  margin-top: 200px;
 }
 
 .usermotto {
@@ -21,6 +21,10 @@
 }
 
 text {
-    color: red;
-    padding-top: 200;
+    color: green;
+
+}
+
+.hoveclass {
+  background-color: green;
 }

@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default {
 	bindtouchstart: React.PropTypes.func
 	catchtouchstart: React.PropTypes.func

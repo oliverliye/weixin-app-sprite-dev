@@ -1,10 +1,10 @@
 import  {
     PanResponder
 }  from 'react-native'
-import _ from  'underscore'
 
 
-export default (component, panConfig)->
+
+export default (component, panConfig = {})->
 
 	timeStamp = 0
 
@@ -12,12 +12,13 @@ export default (component, panConfig)->
 
 	config = 
 		onStartShouldSetPanResponder: ()->
-			handler.hasOwnProperty 'bindtouchstart' || 
-			handler.hasOwnProperty 'catchtouchstart' || 
-			handler.hasOwnProperty 'bindtap' || 
-			handler.hasOwnProperty 'catchtap' || 
-			handler.hasOwnProperty 'bindlongtap' ||
-			handler.hasOwnProperty 'catchlongtap'
+			panConfig.onStartShouldSetPanResponder?() ||
+			handler.hasOwnProperty('bindtouchstart') || 
+			handler.hasOwnProperty('catchtouchstart') || 
+			handler.hasOwnProperty('bindtap') || 
+			handler.hasOwnProperty('catchtap') || 
+			handler.hasOwnProperty('bindlongtap') ||
+			handler.hasOwnProperty('catchlongtap') 
 
 		onMoveShouldSetPanResponder: (e, gestureState)-> 
 			handler.hasOwnProperty 'bindtouchmove' || handler.hasOwnProperty 'catchtouchmove'
@@ -26,10 +27,31 @@ export default (component, panConfig)->
 			panConfig.onPanResponderReject?(e, gestureState)
 
 		onPanResponderGrant: (e, gestureState)->
+			timeStamp = new Date().getTime()
 			panConfig.onPanResponderGrant?(e, gestureState)
+
+			if handler.hasOwnProperty 'bindtouchstart'
+				handler.bindtouchstart()
+			else if handler.hasOwnProperty 'catchtouchstart'
+				handler.catchtouchstart()
 		
 		onPanResponderRelease: (e, gestureState)->
 			panConfig.onPanResponderRelease?(e, gestureState)
+			if handler.hasOwnProperty 'catchtouchend'
+				handler.catchtouchend()
+			else if handler.hasOwnProperty 'bindtouchend'
+				handler.bindtouchend()
+
+			if (new Date().getTime()) - timeStamp > 350
+				if handler.hasOwnProperty 'catchlongtap'
+					handler.catchlongtap()
+				else if handler.hasOwnProperty 'bindlongtap'
+					handler.bindlongtap() 
+			else
+				if handler.hasOwnProperty 'catchtap'
+					handler.catchtap()
+				else if handler.hasOwnProperty 'bindtap'
+					handler.bindtap() 
 
 		onPanResponderMove: (e, gestureState)->
 			panConfig.onPanResponderMove?(e, gestureState)
@@ -42,30 +64,10 @@ export default (component, panConfig)->
 		onPanResponderStart: (e, gestureState)->
 			panConfig.onPanResponderStart?(e, gestureState)
 
-			timeStamp = new Date().getTime()
-			if handler.hasOwnProperty 'bindtouchstart'
-				handler.bindtouchstart()
-			else if handler.hasOwnProperty 'catchtouchstart'
-				handler.catchtouchstart()
-
 		onPanResponderEnd: (e, gestureState)->
 			panConfig.onPanResponderEnd?(e, gestureState)
 
-			if handler.hasOwnProperty 'catchtouchend'
-				handler.catchtouchend()
-			else if handler.hasOwnProperty 'bindtouchend'
-				handler.bindtouchend()
 
-			if (new Date().getTime()) - timeStamp > 350
-				if handler.hasOwnProperty 'catchtap'
-					handler.catchtap()
-				else if handler.hasOwnProperty 'bindtap'
-					handler.bindtap() 
-			else
-				if handler.hasOwnProperty 'bindlongtap'
-					handler.catchlongtap()
-				else if handler.hasOwnProperty 'catchlongtap'
-					handler.bindlongtap() 
 
 		onResponderTerminate: ()->
 			panConfig.onResponderTerminate?(e, gestureState)
@@ -77,22 +79,3 @@ export default (component, panConfig)->
 
 
 	PanResponder.create config
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	PanResponder

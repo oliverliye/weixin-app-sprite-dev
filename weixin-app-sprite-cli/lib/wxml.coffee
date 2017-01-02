@@ -207,8 +207,6 @@ module.exports = (path, pageName, wxss = null)->
 
     {$wxml, templates} = readWxmlFile path, pageName + '.wxml'
 
-    #console.log $wxml.html()
-
     wxss?.setToWxml $wxml
   
     element = (new Wxml path, $wxml).parse()

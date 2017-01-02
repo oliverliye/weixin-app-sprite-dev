@@ -1,14 +1,7 @@
-<template name="ccccc">
-  <view class="userinfo"> dbbbrwerwe </view>
-</template>
 
+<button label="aaaa" bindtap="tapButton"></button>
 
-<template name="odd">
-  <template name="ddddd">
-  	<view class="userinfo"> ddddddddddddddddd </view>
-  </template>
-  <view class="userinfo"> oddoddoddoddodd </view>
-</template>
-
-
-<template is="odd"/>
+<button label="redirect" bindtap="redirectButton"></button>
+<view style="width:{{400}};height:{{200}};background-color:red;">
+sdfsdfdsfdsfds
+</view>

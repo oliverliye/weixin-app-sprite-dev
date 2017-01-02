@@ -6,12 +6,12 @@ checkDimension = (value)->  /\d+(((px{1,1})|(rpx{1,1}))){0,1}$/.test value
 
 convertDimension = (value, density = 1)->
     if value.indexOf('rpx') > -1
-        value.replace 'rpx', ''
+        value = value.replace 'rpx', ''
     else if value.indexOf('px') > -1
         value = value.replace 'px', ''
-        value / density
-    else
-        value
+        value = value / density
+
+    parseInt value
 
 convertRect = (value, top, right, bottom, left)->
     vs = value.split /\s+/
@@ -34,18 +34,18 @@ convertRect = (value, top, right, bottom, left)->
 
 createColor = (name)->
     check: ()-> true
-    convert: (value)-> "#{name}": "'#{value}'"
+    convert: (value)-> "#{name}": "#{value}"
 
 createDimension = (name)->
     check: checkDimension
-    convert: (value, density) -> "#{name}": "#{convertDimension value, density}"
+    convert: (value, density) -> "#{name}": convertDimension value, density
 
 createString = (name, values, mapping)->
     values: values
     check: valueExist
     convert: (value) -> 
         value = mapping[value] if mapping? and mapping.hasOwnProperty value
-        "#{name}": "'#{value}'"
+        "#{name}": "#{value}"
 
 createNumber = (name)->
     check: ()-> true

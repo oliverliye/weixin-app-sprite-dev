@@ -17,9 +17,12 @@ export default StyleSheet.create({
         borderRadius: 50
     },
     userinfoNickname: {
-        color: '#aaa'
+        marginTop: 200
     },
     usermotto: {
         marginTop: 200
+    },
+    hoveclass: {
+        backgroundColor: 'green'
     }
 });

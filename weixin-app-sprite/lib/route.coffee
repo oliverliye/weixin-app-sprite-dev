@@ -14,14 +14,13 @@ export default {
 
 	redirectTo: (pageName)->
 		route = Config.getRoute pageName
-		navigator.resetTo route
+		navigator.immediatelyResetRouteStack [route]
 
 	navigateBack: (delta = 1)-> 
 		routes = navigator.getCurrentRoutes()
 		index = routes.length
-		return if index < 0 or index - delta < 0
-
-		navigator.popToRoute routes[index - delta]
+		return if index < 0 or index - delta - 1 < 0
+		navigator.popToRoute routes[index - delta - 1]
 
 	switchTab: (params)->
 }

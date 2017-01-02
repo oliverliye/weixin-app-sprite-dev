@@ -8,6 +8,14 @@ test 'isBind => {{bind}}', ()->
 test 'isBind not bind => bind', ()->
     expect(isBind('bind')).toBe false
 
+test 'isBind left => {{bind}}right', ()->
+    expect(isBind('{{bind}}right')).toBe true
+test 'isBind right => left{{bind}}', ()->
+    expect(isBind('left{{bind}}')).toBe true
+
+test 'isBind center => left{{bind}}right', ()->
+    expect(isBind('left{{bind}}right')).toBe true
+
 # chompBindLR
 test 'chompBindLR => {{bind}}', ()->
     expect(chompBindLR('{{bind}}')).toBe "{bind}"
@@ -34,12 +42,5 @@ test 'This is a {{text}}', ()->
 test '{{text}} is a word', ()->
     expect(convert('{{text}} is a word')).toBe "''+(text)+' is a word'"
 
-# test 'isBind left => {{bind}}right', ()->
-#     expect(isBind('{{bind}}right')).toBe true
-# test 'isBind right => left{{bind}}', ()->
-#     expect(isBind('left{{bind}}')).toBe true
-
-# test 'isBind center => left{{bind}}right', ()->
-#     expect(isBind('left{{bind}}right')).toBe true
 
 

@@ -104,8 +104,7 @@ class Wxss
             # style
             if style
                 if wxdbrn.isBind style
-                    styleStr = "#{Config.varPrefix}parseStyle(#{wxdbrn.convert style})"
-                    $elem.attr 'style', styleStr
+                    $elem.attr 'style', style
                 else
                     styleData = _.extend styleData, wxssrn.parseStyle style 
                     $elem.removeAttr 'style'
@@ -120,7 +119,12 @@ class Wxss
         styles  = []
         for name, content of @styles
             props = []
-            props.push "#{pn}: #{pv}" for pn, pv of content  
+            for pn, pv of content 
+                if _.isString pv
+                    props.push "#{pn}: '#{pv}'"  
+                else
+                    props.push "#{pn}: #{pv}"  
+
             styles.push """#{name}:{#{props.join ","}}"""
         
         if styles.length <= 0
@@ -135,7 +139,11 @@ class Wxss
             continue unless item.priority is 100
             props = []
             for name, content of item.style
-                props.push "#{name}: #{content}"
+                if _.isString content
+                    props.push "#{name}: '#{content}'"
+                else
+                    props.push "#{name}: #{content}"
+                
             styles.push """#{S(item.selector).camelize().replaceAll(".", "").s}:{#{props.join ","}}"""
 
         if styles.length <= 0

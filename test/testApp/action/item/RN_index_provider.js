@@ -1,9 +1,11 @@
 import R_$wxas$_React from 'react';
 import R_$wxas$_ReactNative from 'react-native';
+import R_$wxas$_wxssrn from 'wxssrn';
+import R_$wxas$_rnweui from 'rnweui';
+
 import R_$wxas$_styles from './RN_index_styles';
 import R_$wxas$_class from './RN_index_class';
-import R_$wxas$_template from 'weixin-app-sprite';
-import R_$wxas$_rnweui from 'rnweui';
+
 R_$wxas$_component = R_$wxas$_rnweui.component
 
 export default function(R_$wxas$_page) {
@@ -19,22 +21,37 @@ export default function(R_$wxas$_page) {
     return R_$wxas$_React.createElement(
         R_$wxas$_component.view, {
 
-            __class: R_$wxas$_class
+            wxasClass: R_$wxas$_class
         },
-        function() {
+        R_$wxas$_React.createElement(R_$wxas$_component.button, {
+            label: "aaaa",
+            bindtap: function() {
+                return R_$wxas$_page['tapButton'];
+            }(),
 
-            return R_$wxas$_React.createElement(
-                R_$wxas$_component.view, {
-                    'class': 'userinfo',
+            wxasClass: R_$wxas$_class
+        }),
+        R_$wxas$_React.createElement(R_$wxas$_component.button, {
+            label: "redirect",
+            bindtap: function() {
+                return R_$wxas$_page['redirectButton'];
+            }(),
 
-                    __class: R_$wxas$_class
+            wxasClass: R_$wxas$_class
+        }),
+        R_$wxas$_React.createElement(
+            R_$wxas$_component.view, {
+
+                style: [R_$wxas$_wxssrn.parseStyle('width:' + 400 + ';height:' + 200 + ';background-color:red;')],
+                wxasClass: R_$wxas$_class
+            },
+            R_$wxas$_React.createElement(
+                R_$wxas$_component.text, {
+
+                    wxasClass: R_$wxas$_class
                 },
-                R_$wxas$_React.createElement(
-                    R_$wxas$_component.text,
-                    null,
-                    'oddoddoddoddodd'
-                )
-            );
-        }()
+                "sdfsdfdsfdsfds"
+            )
+        )
     );;
 }

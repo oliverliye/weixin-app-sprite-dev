@@ -6,5 +6,12 @@ Page({
   },
   onLoad: function () {
     console.log('onLoad')
+  },
+
+  tapButton: function() {
+  	console.log('tapButton');
+  	wx.navigateTo({url:'action_item_index'})
   }
+
+
 })

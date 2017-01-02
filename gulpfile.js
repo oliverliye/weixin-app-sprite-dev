@@ -120,7 +120,8 @@ gulp.task('wxssrn', function() {
 	return gulp.src(paths.wxssrn.code)
 		.pipe(coffee(coffeeConfig))
 		.pipe(babel(babelConfig))
-		.pipe(gulp.dest("./node_modules/wxssrn"));
+		.pipe(gulp.dest("./node_modules/wxssrn"))
+		.pipe(gulp.dest('./test/node_modules/wxssrn'));
 });
 
 gulp.task('wxssrn-release', function() {

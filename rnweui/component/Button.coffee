@@ -3,9 +3,8 @@ import  {
     Text
     View
     StyleSheet
-    TouchableHighlight
 }  from 'react-native'
-import _ from  'underscore'
+#import _ from  'underscore'
 
 import RNWeui from '../rnweui'
 import Icons from './Icons'
@@ -16,7 +15,7 @@ import PanResponder from './PanResponder'
 
 export default React.createClass
    
-    propTypes: _.extend 
+    propTypes: 
         type: React.PropTypes.oneOf ['primary', 'default', 'warn']
         formType: React.PropTypes.oneOf ['submit', 'reset']
         size: React.PropTypes.oneOf ['default', 'mini']
@@ -24,12 +23,23 @@ export default React.createClass
         disable: React.PropTypes.bool
         loading: React.PropTypes.bool
         label: React.PropTypes.string
-        onPress: React.PropTypes.func
-    , EventPropTypes
+    #, EventPropTypes
+
+    getInitialState: ()->
+        textColor: 'black'
+        bgColor: Color.darkWhite
+        borderColor: Color.lightGray
 
     componentWillMount: ()->
         
-        @_panPesponder = PanResponder @
+        config = 
+            onPanResponderGrant: ()=>
+                @setState textColor: 'green', bgColor: Color.lightGray
+
+            onPanResponderRelease: ()=>
+                @setState textColor: 'black', bgColor: Color.darkWhite
+
+        @_panPesponder = PanResponder @, config
 
     render: ()->
 
@@ -40,11 +50,11 @@ export default React.createClass
 
         if  @props.type is 'primary'
             bgColor = Color.green
-            textColor = Color.white
+            @state.textColor = Color.white
             underlayColor = Color.darkGreen
         else if @props.type is 'warn'
             bgColor = Color.red
-            textColor = Color.white
+            @state.textColor = Color.white
             underlayColor = Color.darkRed
         else 
             bgColor = Color.darkWhite
@@ -55,19 +65,19 @@ export default React.createClass
         opacity = 0.5 if @props.disable is true
 
         dom = <View style={styles.labelContainer}>
-                    <Text style={{color: textColor, opacity: opacity}}>{@props.label}</Text>
+                    <Text style={{color: @state.textColor, opacity: opacity}}>{@props.label}</Text>
                 </View>
 
         if @props.disable is true
-            <View style={[styles.container, {backgroundColor: bgColor, borderWidth: borderWidth, borderColor: borderColor}]}>
+            <View style={[styles.container, {backgroundColor: @state.bgColor, borderWidth: borderWidth, borderColor: borderColor}]}>
                 {dom}
             </View>
              
         else
-            <TouchableHighlight style={[styles.container, {backgroundColor: bgColor, borderWidth: borderWidth, borderColor: borderColor}]} 
-                underlayColor={underlayColor} onPress={@props.onPress}>
+            <View style={[styles.container, {backgroundColor: this.state.bgColor, borderWidth: borderWidth, borderColor: borderColor}]}
+                {...@_panPesponder.panHandlers}>
                 {dom}
-            </TouchableHighlight>
+            </View>
 
 styles = StyleSheet.create
 

@@ -13,7 +13,11 @@
 
 
 <template is="ddddd"/>
-<button label="aaaa"></button>
-<view wx:for="{{[1,2,3,4]}}">
-{{item}}
+<button label="aaaa" bindtap="tapButton"></button>
+<view class="hoveclass" hover="true" hover-class="{{'hoveclass'}}" style="width:{{400}};height:{{200}};background-color:red;">
+	<text style="color:black">sdfsdfdsfdsfds</text>
 </view>
+
+
+
+

@@ -1,5 +1,6 @@
 onlyBind = /^\{\{[^\{^\}]+\}\}$/
-mixedBind = /\{\{[^\{^\}]+\}\}/g
+mixedBind = /\{\{[^\{^\}]+\}\}/
+mixedBindAll = /\{\{[^\{^\}]+\}\}/g
 bindL = /\{\{/g
 bindR = /\}\}/g
 
@@ -8,13 +9,13 @@ clearBindLR = (str)-> str.replace(bindL, "").replace(bindR, "")
 chompBindLR = (str, lch = '{', rch = '}')->
         str.replace(/\{\{/g, lch).replace(/\}\}/g, rch)
 
-isBind = (data)-> mixedBind.test data
+isBind = (data)-> onlyBind.test(data) || mixedBind.test(data)
 
 _convertOnly = (data)-> "{#{clearBindLR data}}"
 
 _convertMixed = (data)->
-    binds = data.match mixedBind
-    noBinds = data.split mixedBind
+    binds = data.match mixedBindAll
+    noBinds = data.split mixedBindAll
     ret = []
     for item in noBinds
         bd = binds.shift()

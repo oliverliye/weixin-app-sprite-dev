@@ -4,7 +4,7 @@ wxdbrn = require 'wxdatabindrn'
 
 Config = require '../config'
 
-isEventBind = (name)-> Config.bindEvents.indexOf(name) > -1
+isEvent = (name)-> Config.bindEvents.indexOf(name) > -1
 
 class Element 
 
@@ -25,10 +25,20 @@ class Element
 
         attrsStr = []
         for key, value of attrs
-            if wxdbrn.isBind value
-                attrsStr.push "#{key}=#{value = wxdbrn.convert value}"
+            if isEvent key
+                if wxdbrn.isBind value
+                    value = wxdbrn.convert value
+                else
+                    value = "'#{value}'"
+
+                attrsStr.push """ #{key}={(function(){return #{Config.varPrefix}page[#{value}]})()} """
+
             else
-                attrsStr.push """#{key}='#{value}'"""
+                key = S(key).camelize().s
+                if wxdbrn.isBind value
+                    attrsStr.push "#{key}=#{value = wxdbrn.convert value}"
+                else
+                    attrsStr.push """ #{key}="#{value}" """
 
             @attrs[key] = value
 
@@ -56,7 +66,10 @@ parse = (element, parent)->
     if element.hasOwnProperty 'styleIndex'
         style.push "#{Config.varPrefix}styles.style#{element.styleIndex}"
     if element.hasOwnProperty 'style'
-        style.push element['style']
+        if wxdbrn.isBind element.style
+            style.push "#{Config.varPrefix}wxssrn.parseStyle(#{wxdbrn.convert(element.style)})"
+        else
+            style.push "#{Config.varPrefix}wxssrn.parseStyle('#{element.style}')"
 
     style = if style.length > 0 then "style={[#{style.join()}]}" else ''
 
@@ -73,7 +86,7 @@ parse = (element, parent)->
                     <#{Config.varPrefix}component.#{tagName} 
                         #{element.attrsStr} 
                         #{style}
-                        __class={#{Config.varPrefix}class}>
+                        wxasClass={#{Config.varPrefix}class}>
                         #{children.join('')}
                     </#{Config.varPrefix}component.#{tagName}>"""
             ).s
@@ -84,7 +97,10 @@ parse = (element, parent)->
         else
             ret = S(element.template).template(
                 render: """
-                    <#{Config.varPrefix}component.text #{element.attrsStr} #{style}>
+                    <#{Config.varPrefix}component.text 
+                        #{element.attrsStr} 
+                        #{style}
+                        wxasClass={#{Config.varPrefix}class}>
                         #{parent.text}
                     </#{Config.varPrefix}component.text>"""
             ).s
