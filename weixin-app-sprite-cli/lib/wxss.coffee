@@ -1,6 +1,8 @@
 S = require 'string'
 _ = require 'underscore'
 $ = require 'cheerio'
+fs = require 'fs'
+path = require 'path'
 wxssrn = require 'wxssrn'
 wxdbrn = require 'wxdatabindrn'
 
@@ -41,9 +43,26 @@ getPriority = (selector)->
             priority += 1
     priority
 
+setImport = (basePath, data)->
+
+    improts = data.match /@import\s+("|')(.+?)("|')\s*;/g
+
+    return data unless improts
+
+    for item in improts
+        pathName = basePath + '/' + /("|')(.+?)("|')/.exec(item)[2]
+        subData = setImport path.dirname(pathName), (fs.readFileSync pathName).toString()
+        data = S(data).replaceAll(item, subData).s
+    data
+
+
 class Wxss
 
-    constructor: (data)->
+    constructor: (filePath)->
+
+        data = setImport path.dirname(filePath), (fs.readFileSync filePath).toString()
+
+        console.log data
         @selectors = []
         @styles = {}
 
@@ -56,8 +75,6 @@ class Wxss
             return -1 if v1.priority < v2.priority
             return 1 if v1.priority > v2.priority
             return 0
-
-        #console.log @selectors
 
 
     setToWxml: (wxml)->

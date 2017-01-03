@@ -12,7 +12,6 @@ export default React.createClass
         hoverClass: React.PropTypes.string
         hoverStartTime: React.PropTypes.number
         hoverStayTime: React.PropTypes.number
-
     
     getDefaultProps: ()->
         hover: false
@@ -21,40 +20,39 @@ export default React.createClass
         hoverStayTime: 400
 
     getInitialState: ()->
-        bgColor: null
-
+        hoverClass: {}
 	
     componentWillMount: ()->
-
-        isHover = ()=> (@props.hover = true or @props.hover = 'true') and @props.hoverClass != 'none' and @props.wxasClass.hasOwnProperty(@props.hoverClass)
-       
+        @isHover = (@props.hover is 'true' or @props.hover is true) and @props.hoverClass != 'none' and @props.wxasClass.hasOwnProperty(@props.hoverClass)
         config = 
-            onStartShouldSetPanResponder: ()=> isHover()
+            onStartShouldSetPanResponder: ()=> @isHover
             onPanResponderGrant: ()=>
-                if isHover()
+                if @isHover
                     if @props.hoverStartTime > 0
                         setTimeout ()=>
-                            @setState bgColor: 'green'#@props.wxasClass[@props.hoverClass]
+                            @setState hoverClass: @props.wxasClass[@props.hoverClass]
                         , @props.hoverStartTime
                     else
-                        @setState bgColor: @props.wxasClass[@props.hoverClass]
+                        @setState hoverClass: @props.wxasClass[@props.hoverClass]
 
                 
             onPanResponderRelease: ()=>
-                if isHover()
+                if @isHover
                     if @props.hoverStayTime > 0
                         setTimeout ()=>
-                            @setState bgColor: null
+                            @setState hoverClass: {}
                         , @props.hoverStayTime
                     else
-                        @setState bgColor: null
+                        @setState hoverClass: {}
 
         @_panPesponder = PanResponder @, config
 
     render: ()->
+        if @isHover
+            dom = <View style={[{flex:1}, @state.hoverClass]}>{@props.children}</View>
+        else
+            dom = @props.children
 
         <View style={@props.style} {...@_panPesponder.panHandlers} >
-            <View style={{flex:1,backgroundColor:@state.bgColor}}>
-            {@props.children}
-            </View>
+            {dom}
         </View>

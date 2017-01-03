@@ -33,6 +33,8 @@ export default React.createClass
     componentWillMount: ()->
         
         config = 
+            onStartShouldSetPanResponder: ()-> true
+
             onPanResponderGrant: ()=>
                 @setState textColor: 'green', bgColor: Color.lightGray
 
@@ -74,7 +76,7 @@ export default React.createClass
             </View>
              
         else
-            <View style={[styles.container, {backgroundColor: this.state.bgColor, borderWidth: borderWidth, borderColor: borderColor}]}
+            <View style={[styles.container, {backgroundColor: @state.bgColor, borderWidth: borderWidth, borderColor: borderColor}]}
                 {...@_panPesponder.panHandlers}>
                 {dom}
             </View>

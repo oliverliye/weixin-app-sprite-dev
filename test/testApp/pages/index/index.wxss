@@ -5,6 +5,8 @@
   align-items: center;
 }
 
+@import "temp.wxss";
+
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;

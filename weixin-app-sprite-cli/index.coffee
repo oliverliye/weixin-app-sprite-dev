@@ -44,7 +44,7 @@ for page in appConfig.pages
     wxss = null
     if fs.existsSync pageFilePath + '.wxss'
         cssCode = fs.readFileSync pageFilePath + '.wxss'
-        wxss = new Wxss cssCode.toString()
+        wxss = new Wxss pageFilePath + '.wxss'
 
     outWxml appPath + pagePath, pageName, wxss
 

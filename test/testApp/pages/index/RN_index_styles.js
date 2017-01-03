@@ -4,13 +4,17 @@ import {
 
 export default StyleSheet.create({
     style0: {
-        flexDirection: 'column',
-        alignItems: 'center'
+        flexDirection: ''
+        column '',
+        alignItems: ''
+        center ''
     },
     style1: {
-        backgroundColor: 'green'
+        backgroundColor: ''
+        green ''
     },
     style2: {
-        color: 'black'
+        color: ''
+        black ''
     }
 });
