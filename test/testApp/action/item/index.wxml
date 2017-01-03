@@ -1,7 +1,11 @@
 
-<button label="aaaa" bindtap="tapButton"></button>
+<button label="aaaa" bindtap="tapButton">
+back
+</button>
 
-<button label="redirect" bindtap="redirectButton"></button>
+<button label="redirect" bindtap="redirectButton">
+redirect
+</button>
 <view style="width:{{400}};height:{{200}};background-color:red;">
 sdfsdfdsfdsfds
 </view>

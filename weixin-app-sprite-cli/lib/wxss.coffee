@@ -62,7 +62,6 @@ class Wxss
 
         data = setImport path.dirname(filePath), (fs.readFileSync filePath).toString()
 
-        console.log data
         @selectors = []
         @styles = {}
 

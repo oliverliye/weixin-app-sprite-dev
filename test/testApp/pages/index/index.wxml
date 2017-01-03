@@ -13,7 +13,9 @@
 
 
 <template is="ddddd"/>
-<button label="aaaa" bindtap="tapButton"></button>
+<button bindtap="tapButton">
+ddddddddddd
+</button>
 <view class="hoveclass" hover="true" hover-class="{{'hoveclass'}}" style="width:{{400}};height:{{200}};background-color:red;">
 	<text style="color:black">sdfsdfdsfdsfds</text>
 </view>

@@ -23,22 +23,40 @@ export default function(R_$wxas$_page) {
 
             wxasClass: R_$wxas$_class
         },
-        R_$wxas$_React.createElement(R_$wxas$_component.button, {
-            label: "aaaa",
-            bindtap: function() {
-                return R_$wxas$_page['tapButton'];
-            }(),
+        R_$wxas$_React.createElement(
+            R_$wxas$_component.button, {
+                label: "aaaa",
+                bindtap: function() {
+                    return R_$wxas$_page['tapButton'];
+                }(),
 
-            wxasClass: R_$wxas$_class
-        }),
-        R_$wxas$_React.createElement(R_$wxas$_component.button, {
-            label: "redirect",
-            bindtap: function() {
-                return R_$wxas$_page['redirectButton'];
-            }(),
+                wxasClass: R_$wxas$_class
+            },
+            R_$wxas$_React.createElement(
+                R_$wxas$_component.text, {
 
-            wxasClass: R_$wxas$_class
-        }),
+                    wxasClass: R_$wxas$_class
+                },
+                "back"
+            )
+        ),
+        R_$wxas$_React.createElement(
+            R_$wxas$_component.button, {
+                label: "redirect",
+                bindtap: function() {
+                    return R_$wxas$_page['redirectButton'];
+                }(),
+
+                wxasClass: R_$wxas$_class
+            },
+            R_$wxas$_React.createElement(
+                R_$wxas$_component.text, {
+
+                    wxasClass: R_$wxas$_class
+                },
+                "redirect"
+            )
+        ),
         R_$wxas$_React.createElement(
             R_$wxas$_component.view, {
 

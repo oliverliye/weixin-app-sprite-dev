@@ -36,32 +36,41 @@ export default function(R_$wxas$_page) {
 
                         wxasClass: R_$wxas$_class
                     },
-                    "ddddddddddddddddd"
+                    'ddddddddddddddddd'
                 )
             );
         }(),
-        R_$wxas$_React.createElement(R_$wxas$_component.button, {
-            label: "aaaa",
-            bindtap: function() {
-                return R_$wxas$_page['tapButton'];
-            }(),
-
-            wxasClass: R_$wxas$_class
-        }),
         R_$wxas$_React.createElement(
-            R_$wxas$_component.view, {
-                hover: "true",
-                hoverClass: 'hoveclass',
-                style: [R_$wxas$_styles.style1, R_$wxas$_wxssrn.parseStyle(undefined)],
+            R_$wxas$_component.button, {
+                bindtap: function() {
+                    return R_$wxas$_page['tapButton'];
+                }(),
+
                 wxasClass: R_$wxas$_class
             },
             R_$wxas$_React.createElement(
                 R_$wxas$_component.text, {
 
-                    style: [R_$wxas$_styles.style2],
+                    style: [R_$wxas$_styles.style1],
                     wxasClass: R_$wxas$_class
                 },
-                "sdfsdfdsfdsfds"
+                'ddddddddddd'
+            )
+        ),
+        R_$wxas$_React.createElement(
+            R_$wxas$_component.view, {
+                hover: 'true',
+                hoverClass: 'hoveclass',
+                style: [R_$wxas$_styles.style2, R_$wxas$_wxssrn.parseStyle('width:' + 400 + ';height:' + 200 + ';background-color:red;')],
+                wxasClass: R_$wxas$_class
+            },
+            R_$wxas$_React.createElement(
+                R_$wxas$_component.text, {
+
+                    style: [R_$wxas$_styles.style3],
+                    wxasClass: R_$wxas$_class
+                },
+                'sdfsdfdsfdsfds'
             )
         )
     );;

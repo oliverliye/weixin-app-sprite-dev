@@ -8,13 +8,13 @@ import PanResponder from './PanResponder'
 export default React.createClass
 
     propTypes: 
-        hover: React.PropTypes.bool
+        hover: React.PropTypes.string
         hoverClass: React.PropTypes.string
         hoverStartTime: React.PropTypes.number
         hoverStayTime: React.PropTypes.number
     
     getDefaultProps: ()->
-        hover: false
+        hover: 'false'
         hoverClass: 'none'
         hoverStartTime: 50
         hoverStayTime: 400
@@ -23,7 +23,7 @@ export default React.createClass
         hoverClass: {}
 	
     componentWillMount: ()->
-        @isHover = (@props.hover is 'true' or @props.hover is true) and @props.hoverClass != 'none' and @props.wxasClass.hasOwnProperty(@props.hoverClass)
+        @isHover = @props.hover is 'true' and @props.hoverClass != 'none' and @props.wxasClass.hasOwnProperty(@props.hoverClass)
         config = 
             onStartShouldSetPanResponder: ()=> @isHover
             onPanResponderGrant: ()=>

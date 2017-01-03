@@ -4,7 +4,7 @@ import  {
     View
     StyleSheet
 }  from 'react-native'
-#import _ from  'underscore'
+import _ from  'underscore'
 
 import RNWeui from '../rnweui'
 import Icons from './Icons'
@@ -16,14 +16,23 @@ import PanResponder from './PanResponder'
 export default React.createClass
    
     propTypes: 
-        type: React.PropTypes.oneOf ['primary', 'default', 'warn']
-        formType: React.PropTypes.oneOf ['submit', 'reset']
-        size: React.PropTypes.oneOf ['default', 'mini']
-        plain: React.PropTypes.bool
-        disable: React.PropTypes.bool
-        loading: React.PropTypes.bool
-        label: React.PropTypes.string
-    #, EventPropTypes
+        _.extend
+            type: React.PropTypes.oneOf ['primary', 'default', 'warn']
+            formType: React.PropTypes.oneOf ['submit', 'reset']
+            size: React.PropTypes.oneOf ['default', 'mini']
+            plain: React.PropTypes.bool
+            disable: React.PropTypes.bool
+            loading: React.PropTypes.bool
+            label: React.PropTypes.string
+            hoverClass: React.PropTypes.string
+            hoverStartTime: React.PropTypes.number
+            hoverStayTime: React.PropTypes.number
+        , EventPropTypes
+
+    getDefaultProps: ()->
+        hoverClass: 'none'
+        hoverStartTime: 50
+        hoverStayTime: 400
 
     getInitialState: ()->
         textColor: 'black'
@@ -67,8 +76,8 @@ export default React.createClass
         opacity = 0.5 if @props.disable is true
 
         dom = <View style={styles.labelContainer}>
-                    <Text style={{color: @state.textColor, opacity: opacity}}>{@props.label}</Text>
-                </View>
+                {@props.children}
+            </View>
 
         if @props.disable is true
             <View style={[styles.container, {backgroundColor: @state.bgColor, borderWidth: borderWidth, borderColor: borderColor}]}>
