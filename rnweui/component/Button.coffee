@@ -23,7 +23,6 @@ export default React.createClass
             plain: React.PropTypes.bool
             disable: React.PropTypes.bool
             loading: React.PropTypes.bool
-            label: React.PropTypes.string
             hoverClass: React.PropTypes.string
             hoverStartTime: React.PropTypes.number
             hoverStayTime: React.PropTypes.number

@@ -23,4 +23,6 @@ export default {
 		navigator.popToRoute routes[index - delta - 1]
 
 	switchTab: (params)->
+
+
 }
