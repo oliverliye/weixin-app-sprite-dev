@@ -56,20 +56,16 @@ for page in appConfig.pages
     else
         routes[page] = defaultWindowConfig
 
+    routes[page]['wxas_path'] = pagePath
     if tabList = appConfig.tabBar?.list
         for tab in tabList
-            if tab.pagePath is page
-                
-                routes[page]['wxas_path'] = pagePath
+            if tab.pagePath is page            
                 routes[page]['wxas_tabBar_text'] = tab.text if tab.text
                 routes[page]['wxas_tabBar_iconPath'] = tab.iconPath if tab.iconPath
                 routes[page]['wxas_tabBar_selectedIconPath'] = tab.selectedIconPath if tab.iconPath
-                routes['tab/' + page] = _.extend {}, routes[page]
+                routes['tab/' + page] = routes[page]
                 delete routes[page]
                 break
-    else
-
-        routes[page]['wxas_path'] = pagePath
 
 # 输出路由配置文件
 fs.writeFileSync "#{appPath}/RN_routes.js", Template.createRoute routes

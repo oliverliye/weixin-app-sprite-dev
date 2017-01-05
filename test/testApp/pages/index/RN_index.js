@@ -32,8 +32,14 @@ Page({
     tapButton: function() {
         console.log('tapButton');
         wx.navigateTo({
-            url: 'action_item_index'
+            url: '/action/item/index'
         })
+    },
+
+    tapRequestButton: function() {
+        wx.request({
+            url: 'www.baidu.com'
+        });
     }
 
 

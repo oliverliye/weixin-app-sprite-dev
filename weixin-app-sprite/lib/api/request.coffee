@@ -1,6 +1,13 @@
 _ = require 'underscore'
 
+
+defParams = 
+    method: 'GET'
+    dataType: 'json'
+
 export default (params)->
+
+        params = _.extend {}, defParams, params
 
         contentType = 'application/json'
 
@@ -11,7 +18,7 @@ export default (params)->
         req.onloadend = ()->
             if @status is 200 or @status is 304
                 params.success? @response
-            params.complete()
+            params.complete?()
 
         req.open params.method, params.url, true
 

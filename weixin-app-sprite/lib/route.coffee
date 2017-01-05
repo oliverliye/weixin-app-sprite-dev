@@ -17,6 +17,7 @@ parseQuery = (queryStr)->
 parseUrl = (url, current)->
 	[uri, queryStr] = url.split '?'
 
+	data = {}
 	data = parseQuery queryStr unless S(queryStr).isEmpty()
 	
 	
@@ -43,9 +44,17 @@ export default {
 
 	init: (nav)-> navigator = nav
 
+	getCurrentRoute: ()->
+		routes = navigator.getCurrentRoutes()
+		routes[routes.length - 1]
+
+	getRouteBasePath: ()-> 
+		route = @getCurrentRoute()
+		route.wxas_path
+
 	navigateTo: (url)->
-		params = parseQuery url
-		route = Config.getRoute params.uri
+		params = parseUrl url, @getRouteBasePath()
+		route = Config.getRoute params.name
 		if route
 			route['wxas_data'] = params.data
 			navigator.push route
@@ -54,7 +63,7 @@ export default {
 			false
 
 	redirectTo: (url)->
-		params = parseQuery url
+		params = parseQuery url, @getRouteBasePath()
 		route = Config.getRoute params.uri
 		if route
 			route['wxas_data'] = params.data
@@ -71,6 +80,6 @@ export default {
 		true
 
 	switchTab: (url)->
-		params = parseQuery url
+		params = parseQuery url, @getRouteBasePath()
 		route = Config.getRoute params.uri
 }

@@ -20,6 +20,7 @@ export default {
         backgroundColor: "#ffffff",
         backgroundTextStyle: "light",
         enablePullDownRefresh: "false",
+        wxas_path: "action/item",
         wxas_component: action_item_index,
         wxas_name: 'action_item_index'
     },

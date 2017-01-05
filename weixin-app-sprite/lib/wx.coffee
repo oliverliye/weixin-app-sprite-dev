@@ -1,16 +1,30 @@
 import route from './route'
-import equest from './lib/request'
+import request from './api/request'
 
 
 export default {
 
     navigateTo: (params)->
-        route.navigateTo params.url
+        if route.navigateTo params.url
+        	params.success?()
+        else
+        	params.fail?()
+        params.complete?()
 
     redirectTo: (params)->
-        route.redirectTo params.url
+        if route.redirectTo params.url
+        	params.success?()
+        else
+        	params.fail?()
+        params.complete?()
 
     switchTab: (params)->
+        if route.switchTab params.url
+        	params.success?()
+        else
+        	params.fail?()
+        params.complete?()
+
 
     navigateBack: (params)->
         route.navigateBack()

@@ -4,21 +4,19 @@ import {
 
 export default StyleSheet.create({
     style0: {
-        flexDirection: ''
-        column '',
-        alignItems: ''
-        center ''
+        flexDirection: 'column',
+        alignItems: 'center'
     },
     style1: {
-        color: ''
-        green ''
+        color: 'green'
     },
     style2: {
-        backgroundColor: ''
-        green ''
+        color: 'green'
     },
     style3: {
-        color: ''
-        black ''
+        backgroundColor: 'green'
+    },
+    style4: {
+        color: 'black'
     }
 });

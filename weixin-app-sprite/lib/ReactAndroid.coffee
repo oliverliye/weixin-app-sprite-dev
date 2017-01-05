@@ -23,13 +23,13 @@ export default React.createClass
             true
 
     navigatorDidFocus: (route)->
-        @state.isRoot = route.name is '__home__'
+        @state.isRoot = route.name is 'wxas_home'
     
     render: ()->
         <RNWeui.component.weui>
             <Navigator
                 ref="navigator"
-                initialRoute={Config.getRoute(Config.getRoute '__home__')}
+                initialRoute={Config.getRoute(Config.getRoute 'wxas_home')}
                 onDidFocus={(route)=> @navigatorDidFocus(route)}
                 renderScene={@renderNav}/>
         </RNWeui.component.weui>

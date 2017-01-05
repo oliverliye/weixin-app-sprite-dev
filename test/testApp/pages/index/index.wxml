@@ -16,6 +16,10 @@
 <button bindtap="tapButton">
 ddddddddddd
 </button>
+
+<button bindtap="tapRequestButton">
+request
+</button>
 <view class="hoveclass" hover="true" hover-class="{{'hoveclass'}}" style="width:{{400}};height:{{200}};background-color:red;">
 	<text style="color:black">sdfsdfdsfdsfds</text>
 </view>
