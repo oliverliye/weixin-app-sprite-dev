@@ -35,15 +35,20 @@ export default React.createClass
         </RNWeui.component.weui>
 
     renderNav: (route, nav)->
-        Page = Config.getRoute route.name
+        Page = Config.getRoute route.wxas_name
         <View style={flex:1, backgroundColor: Page.backgroundColor}>
             <RNWeui.component.toolbar 
                 navigator={nav} 
                 title={Page.navigationBarTitleText}
                 navigationBarTextStyle={Page.navigationBarTextStyle}
                 backgroundColor={Page.navigationBarBackgroundColor}/>
-            <ScrollView>
-                <Page.component ref="page"/>
-            </ScrollView>
+            {
+                if Page.disableScroll
+                    <Page.wxas_component ref="page"/>
+                else
+                    <ScrollView>
+                        <Page.wxas_component ref="page"/>
+                    </ScrollView>
+            }
         </View>
 

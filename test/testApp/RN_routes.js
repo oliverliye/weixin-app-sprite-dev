@@ -1,17 +1,17 @@
-import pages_index_index from "./pages/index/RN_index";
+import tab_pages_index_index from "./pages/index/RN_index";
 import action_item_index from "./action/item/RN_index";
 
 export default {
-    'pages_index_index': {
+    'tab_pages_index_index': {
         navigationBarBackgroundColor: "#ffffff",
         navigationBarTextStyle: "black",
         navigationBarTitleText: "微信接口功能演示",
         backgroundColor: "#eeeeee",
         backgroundTextStyle: "light",
         enablePullDownRefresh: "false",
-        path: "pages/index",
-        component: pages_index_index,
-        name: 'pages_index_index'
+        wxas_path: "pages/index",
+        wxas_component: tab_pages_index_index,
+        wxas_name: 'tab_pages_index_index'
     },
     'action_item_index': {
         navigationBarBackgroundColor: "#888",
@@ -20,9 +20,8 @@ export default {
         backgroundColor: "#ffffff",
         backgroundTextStyle: "light",
         enablePullDownRefresh: "false",
-        path: "action/item/",
-        component: action_item_index,
-        name: 'action_item_index'
+        wxas_component: action_item_index,
+        wxas_name: 'action_item_index'
     },
-    __home__: "pages_index_index"
+    wxas_home: "tab_pages_index_index"
 }

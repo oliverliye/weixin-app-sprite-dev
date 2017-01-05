@@ -29,7 +29,8 @@ defaultWindowConfig =
     backgroundColor: '#ffffff'
     backgroundTextStyle: 'dark'
     enablePullDownRefresh: false
-defaultWindowConfig = _.extend {}, defaultWindowConfig, appConfig.window
+
+defaultWindowConfig = _.extend {}, defaultWindowConfig, if appConfig.window then appConfig.window else {}
 
 # 处理page
 routes = {}
@@ -55,8 +56,20 @@ for page in appConfig.pages
     else
         routes[page] = defaultWindowConfig
 
-    routes[page].path = pagePath
+    if tabList = appConfig.tabBar?.list
+        for tab in tabList
+            if tab.pagePath is page
+                
+                routes[page]['wxas_path'] = pagePath
+                routes[page]['wxas_tabBar_text'] = tab.text if tab.text
+                routes[page]['wxas_tabBar_iconPath'] = tab.iconPath if tab.iconPath
+                routes[page]['wxas_tabBar_selectedIconPath'] = tab.selectedIconPath if tab.iconPath
+                routes['tab/' + page] = _.extend {}, routes[page]
+                delete routes[page]
+                break
+    else
 
+        routes[page]['wxas_path'] = pagePath
 
 # 输出路由配置文件
 fs.writeFileSync "#{appPath}/RN_routes.js", Template.createRoute routes

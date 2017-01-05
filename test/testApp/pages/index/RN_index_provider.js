@@ -61,7 +61,7 @@ export default function(R_$wxas$_page) {
             R_$wxas$_component.view, {
                 hover: 'true',
                 hoverClass: 'hoveclass',
-                style: [R_$wxas$_styles.style2, R_$wxas$_wxssrn.parseStyle('width:' + 400 + ';height:' + 200 + ';background-color:red;')],
+                style: [R_$wxas$_styles.style2, R_$wxas$_wxssrn.parseStyle(undefined)],
                 wxasClass: R_$wxas$_class
             },
             R_$wxas$_React.createElement(

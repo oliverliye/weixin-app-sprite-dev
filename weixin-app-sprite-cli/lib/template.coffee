@@ -46,14 +46,14 @@ module.exports =
             pathname = name.replace(/\/+/g, '/')
             name = name.replace(/\/+/g, '_')
 
-            imports.push """import #{name} from "./#{path.dirname pathname}/RN_#{path.basename pathname}";"""           
+            imports.push """import #{name} from "./#{path.dirname S(pathname).chompLeft('tab/').s}/RN_#{path.basename pathname}";"""           
             code.push "'#{name}': {"
             code.push """#{k}: "#{v}", """ for k, v of content
-            code.push "component: #{name},"
-            code.push "name: '#{name}'"
+            code.push "wxas_component: #{name},"
+            code.push "wxas_name: '#{name}'"
             code.push "},"
 
-        code.push """ __home__: "#{_.keys(routes)[0].replace(/\/+/g, '_')}" """
+        code.push """ wxas_home: "#{_.keys(routes)[0].replace(/\/+/g, '_')}" """
 
         beautify """
             #{imports.join ''}
